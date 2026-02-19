@@ -22,14 +22,14 @@ const CONFIG = {
     useTexture: true,
   },
   blocks: [
-    { id:'A', start:{x:8,y:4,z:8,rotX:-50,rotY:36,rotZ:12}, end:{x:1.2,y:0,z:1.2,rotX:0,rotY:0,rotZ:0} },
-    { id:'B', start:{x:-6,y:-3,z:1,rotX:-54,rotY:-33,rotZ:-74}, end:{x:-1.2,y:0,z:1.2,rotX:0,rotY:0,rotZ:0} },
-    { id:'C', start:{x:5,y:-5,z:4,rotX:56,rotY:-43,rotZ:-66}, end:{x:1.2,y:0,z:-1.2,rotX:0,rotY:0,rotZ:0} },
-    { id:'D', start:{x:-5,y:6,z:-1.8,rotX:40,rotY:78,rotZ:30}, end:{x:-1.2,y:0,z:-1.2,rotX:0,rotY:0,rotZ:0} },
+    { id:'A', start:{x:8,y:4,z:8,rotX:-50,rotY:36,rotZ:12},     end:{x:1.2,y:0,z:1.2,rotX:0,rotY:0,rotZ:0} },
+    { id:'B', start:{x:-6,y:-3,z:1,rotX:-54,rotY:-33,rotZ:-74},  end:{x:-1.2,y:0,z:1.2,rotX:0,rotY:0,rotZ:0} },
+    { id:'C', start:{x:5,y:-5,z:4,rotX:56,rotY:-43,rotZ:-66},    end:{x:1.2,y:0,z:-1.2,rotX:0,rotY:0,rotZ:0} },
+    { id:'D', start:{x:-5,y:6,z:-1.8,rotX:40,rotY:78,rotZ:30},   end:{x:-1.2,y:0,z:-1.2,rotX:0,rotY:0,rotZ:0} },
   ],
   rotation: {
     baseSpeed: (2 * Math.PI) / 15,
-    hoverSpeed: (2 * Math.PI) / 15,
+    hoverSpeed: (2 * Math.PI) / 5,  // в 3 раза быстрее при наведении
     smoothing: 3.0,
   }
 };
@@ -58,7 +58,7 @@ const lightGroup = new THREE.Group();
 scene.add(lightGroup);
 
 const light = new THREE.DirectionalLight(0xffffff, 1.2);
-light.position.set(16, 16, 4); // справа, чуть сверху, спереди
+light.position.set(16, 16, 4);
 lightGroup.add(light);
 
 scene.add(new THREE.AmbientLight(0xffffff, 1.5));
@@ -69,24 +69,13 @@ outerGroup.rotation.x = deg(CONFIG.TILT_X);
 scene.add(outerGroup);
 
 const innerGroup = new THREE.Group();
-
-
-// outerGroup.position.x = 3; // сдвиг всех блоков вправо
 outerGroup.rotation.y = deg(45);
-
-
-
 outerGroup.add(innerGroup);
 
-// ===== Оси родителя innerGroup =====
+// ===== Оси (отладка) =====
 if (showCoords) {
-  const axesHelper = new THREE.AxesHelper(5);
-  innerGroup.add(axesHelper);
-}
-
-if (showCoords) {
-  const axesLight = new THREE.AxesHelper(5);
-  lightGroup.add(axesLight);
+  innerGroup.add(new THREE.AxesHelper(5));
+  lightGroup.add(new THREE.AxesHelper(5));
 }
 
 // ===== Материал =====
@@ -107,7 +96,7 @@ function createMaterial() {
   const MaterialClass = {
     'MeshStandardMaterial': THREE.MeshStandardMaterial,
     'MeshPhysicalMaterial': THREE.MeshPhysicalMaterial,
-    'MeshPhongMaterial': THREE.MeshPhongMaterial,
+    'MeshPhongMaterial':    THREE.MeshPhongMaterial,
   }[matConfig.type] || THREE.MeshStandardMaterial;
 
   const mat = new MaterialClass({ color: matConfig.color, metalness: 0.8, roughness: 0.4 });
@@ -121,12 +110,12 @@ function createMaterial() {
 const PW = CONFIG.block.width, PH = CONFIG.block.height, PD = CONFIG.block.depth;
 
 const panels = CONFIG.blocks.map(cfg => {
-  const geo = new THREE.BoxGeometry(PW, PH, PD);
-  const mat = createMaterial();
+  const geo  = new THREE.BoxGeometry(PW, PH, PD);
+  const mat  = createMaterial();
   const mesh = new THREE.Mesh(geo, mat);
 
   const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
-  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat);
+  const edges   = new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat);
   mesh.add(edges);
 
   innerGroup.add(mesh);
@@ -144,8 +133,8 @@ const panels = CONFIG.blocks.map(cfg => {
     mesh,
     startPos: new THREE.Vector3(cfg.start.x, cfg.start.y, cfg.start.z),
     startRot: new THREE.Euler(deg(cfg.start.rotX), deg(cfg.start.rotY), deg(cfg.start.rotZ)),
-    endPos: new THREE.Vector3(cfg.end.x, cfg.end.y, cfg.end.z),
-    endRot: new THREE.Euler(deg(cfg.end.rotX), deg(cfg.end.rotY), deg(cfg.end.rotZ)),
+    endPos:   new THREE.Vector3(cfg.end.x, cfg.end.y, cfg.end.z),
+    endRot:   new THREE.Euler(deg(cfg.end.rotX), deg(cfg.end.rotY), deg(cfg.end.rotZ)),
   };
 });
 
@@ -154,9 +143,9 @@ function lerp(a, b, t) { return a + (b - a) * t; }
 function lerpV(p, a, b, t) { p.x = lerp(a.x, b.x, t); p.y = lerp(a.y, b.y, t); p.z = lerp(a.z, b.z, t); }
 function lerpR(r, a, b, t) { r.x = lerp(a.x, b.x, t); r.y = lerp(a.y, b.y, t); r.z = lerp(a.z, b.z, t); }
 function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
-function easeIn(t) { return t * t * t; }
+function easeIn(t)  { return t * t * t; }
 
-// ===== Если анимация выключена =====
+// ===== Анимация =====
 if (!enableAnimation) {
   renderer.render(scene, camera);
 } else {
@@ -164,10 +153,13 @@ if (!enableAnimation) {
   let currentRotSpeed = CONFIG.rotation.baseSpeed;
   let isHovered = false;
 
-  canvas.addEventListener('mouseenter', () => { isHovered = true; });
-  canvas.addEventListener('mouseleave', () => { isHovered = false; });
-  canvas.addEventListener('touchstart', () => { isHovered = true; }, { passive: true });
-  canvas.addEventListener('touchend',   () => { isHovered = false; }, { passive: true });
+  // ── Hover-триггер — правый блок, НЕ canvas ──
+  const hoverZone = document.getElementById('hero-right');
+
+  hoverZone.addEventListener('mouseenter', () => { isHovered = true; });
+  hoverZone.addEventListener('mouseleave', () => { isHovered = false; });
+  hoverZone.addEventListener('touchstart', () => { isHovered = true; },  { passive: true });
+  hoverZone.addEventListener('touchend',   () => { isHovered = false; }, { passive: true });
 
   const PHASE = { ASSEMBLE: 0, HOLD: 1, DISASSEMBLE: 2, PAUSE: 3 };
   let phase     = isStart ? PHASE.ASSEMBLE : PHASE.HOLD;
@@ -183,6 +175,7 @@ if (!enableAnimation) {
     last = now;
     phaseTime += dt;
 
+    // Плавное изменение скорости вращения
     const targetSpeed = isHovered ? CONFIG.rotation.hoverSpeed : CONFIG.rotation.baseSpeed;
     currentRotSpeed += (targetSpeed - currentRotSpeed) * dt * CONFIG.rotation.smoothing;
     outerGroup.rotation.y += currentRotSpeed * dt;

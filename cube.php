@@ -39,6 +39,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 0;
+    position: relative;
     z-index: 10;
   }
 
@@ -51,7 +52,6 @@
     text-transform: uppercase;
     color: #4d9fff;
     margin-bottom: 22px;
-    
   }
   .hero-tag::before {
     content: '';
@@ -68,8 +68,6 @@
     letter-spacing: 2px;
     color: #e8f0ff;
     margin-bottom: 18px;
-    
-
   }
 
   h1 em {
@@ -84,14 +82,12 @@
     max-width: 360px;
     font-weight: 300;
     margin-bottom: 44px;
-    
   }
 
   .hero-buttons {
     display: flex;
     flex-direction: column;
     gap: 14px;
-    
   }
 
   .btn {
@@ -129,19 +125,13 @@
     background: rgba(26,106,255,0.08);
   }
 
-  /* ===== CANVAS — на всю секцию, под текстом ===== */
-  .hero-right {
-    /* скрыт из flow, canvas сам позиционируется абсолютно */
-    display: none;
-  }
-
+  /* ===== CANVAS — абсолютный, на всю секцию ===== */
   .hero-container {
     transform: translateX(200px);
     position: absolute;
-    inset: 0;           /* на всю .hero */
+    inset: 0;
     z-index: 0;
-    cursor: crosshair;
-    pointer-events: auto;
+    pointer-events: none; /* события теперь на hero-right */
   }
 
   canvas {
@@ -150,16 +140,17 @@
     height: 100%;
   }
 
-  /* текст поверх канваса */
-  .hero-left {
+  /* ===== RIGHT: невидимый hover-триггер ===== */
+  .hero-right {
+    flex: 0 0 56%;
+    height: 100%;
     position: relative;
-    z-index: 10;
+    z-index: 5;
+    /* background: #cc191969; */
   }
 
   /* ===== MOBILE ===== */
   @media (max-width: 768px) {
-
-  
     body { overflow: hidden; }
 
     .hero {
@@ -169,6 +160,7 @@
 
     .hero-container {
       transform: unset;
+      pointer-events: none;
     }
 
     .hero-left {
@@ -201,7 +193,7 @@
 
 <section class="hero">
 
-  <!-- CANVAS — на всю секцию, позади текста -->
+  <!-- CANVAS — на всю секцию, позади всего -->
   <div class="hero-container" id="hero-container">
     <canvas id="c"></canvas>
   </div>
@@ -216,6 +208,9 @@
       <a href="#" class="btn btn-secondary">Обговорити партнерство</a>
     </div>
   </div>
+
+  <!-- RIGHT: невидимый блок — ловит hover для ускорения вращения -->
+  <div class="hero-right" id="hero-right"></div>
 
 </section>
 
