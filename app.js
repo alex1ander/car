@@ -27,7 +27,14 @@ const CONFIG = {
     { id:'B', start:{x:-6,y:-3,z:1,rotX:-54,rotY:-33,rotZ:-74}, end:{x:-1.2,y:0,z:1.2,rotX:0,rotY:0,rotZ:0} },
     { id:'C', start:{x:5,y:-5,z:4,rotX:56,rotY:-43,rotZ:-66}, end:{x:1.2,y:0,z:-1.2,rotX:0,rotY:0,rotZ:0} },
     { id:'D', start:{x:-5,y:6,z:-1.8,rotX:40,rotY:78,rotZ:30}, end:{x:-1.2,y:0,z:-1.2,rotX:0,rotY:0,rotZ:0} },
-  ]
+  ],
+
+  // ===== Настройки вращения =====
+  rotation: {
+    baseSpeed: (2 * Math.PI) / 15,   // 1 оборот за ~12 секунд
+    hoverSpeed: (2 * Math.PI) / 15,   // 1 оборот за ~6 секунд (×2 при hover)
+    smoothing: 3.0,                   // скорость перехода между базовой и hover-скоростью
+  }
 };
 
 // ===== Canvas и сцена =====
@@ -39,7 +46,7 @@ renderer.setSize(container.clientWidth, container.clientHeight);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(42, container.clientWidth/container.clientHeight, 0.1, 300);
-camera.position.set(0,0,20);
+camera.position.set(0,0,15);
 
 new ResizeObserver(()=>{
   camera.aspect = container.clientWidth/container.clientHeight;
@@ -144,6 +151,18 @@ function lerpR(r,a,b,t){r.x=lerp(a.x,b.x,t);r.y=lerp(a.y,b.y,t);r.z=lerp(a.z,b.z
 function easeOut(t){return 1-Math.pow(1-t,3);}
 function easeIn(t){return t*t*t;}
 
+// ===== Состояние вращения =====
+let currentRotSpeed = CONFIG.rotation.baseSpeed;
+let isHovered = false;
+
+// Hover — мышь
+canvas.addEventListener('mouseenter', () => { isHovered = true; });
+canvas.addEventListener('mouseleave', () => { isHovered = false; });
+
+// Touch — мобильные
+canvas.addEventListener('touchstart', () => { isHovered = true; }, { passive: true });
+canvas.addEventListener('touchend',   () => { isHovered = false; }, { passive: true });
+
 const PHASE={ASSEMBLE:0,HOLD:1,DISASSEMBLE:2,PAUSE:3};
 let phase=PHASE.ASSEMBLE, phaseTime=0, last = performance.now();
 
@@ -152,6 +171,11 @@ function animate(now){
   const dt = Math.min((now-last)/1000,0.05);
   last = now;
   phaseTime += dt;
+
+  // ===== Плавное вращение по Y =====
+  const targetSpeed = isHovered ? CONFIG.rotation.hoverSpeed : CONFIG.rotation.baseSpeed;
+  currentRotSpeed += (targetSpeed - currentRotSpeed) * dt * CONFIG.rotation.smoothing;
+  outerGroup.rotation.y += currentRotSpeed * dt;
 
   if(phase===PHASE.ASSEMBLE){
     const t=easeOut(Math.min(phaseTime/CONFIG.assembleDuration,1));
