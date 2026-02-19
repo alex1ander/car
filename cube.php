@@ -136,6 +136,7 @@
   }
 
   .hero-container {
+    transform: translateX(200px);
     position: absolute;
     inset: 0;           /* на всю .hero */
     z-index: 0;
@@ -157,11 +158,17 @@
 
   /* ===== MOBILE ===== */
   @media (max-width: 768px) {
+
+  
     body { overflow: hidden; }
 
     .hero {
       flex-direction: column;
       height: 100%;
+    }
+
+    .hero-container {
+      transform: unset;
     }
 
     .hero-left {

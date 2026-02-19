@@ -2,7 +2,7 @@
 const enableAnimation = true;
 const isLooping      = true;
 const isStart        = true;
-const showCoords     = true;
+const showCoords     = false;
 
 // ===== Конфигурация =====
 const CONFIG = {
@@ -60,6 +60,7 @@ scene.add(lightGroup);
 const light = new THREE.DirectionalLight(0xffffff, 1.2);
 light.position.set(16, 16, 4); // справа, чуть сверху, спереди
 lightGroup.add(light);
+
 scene.add(new THREE.AmbientLight(0xffffff, 1.5));
 
 // ===== Группы объектов — вращаются =====
@@ -68,6 +69,13 @@ outerGroup.rotation.x = deg(CONFIG.TILT_X);
 scene.add(outerGroup);
 
 const innerGroup = new THREE.Group();
+
+
+// outerGroup.position.x = 3; // сдвиг всех блоков вправо
+outerGroup.rotation.y = deg(45);
+
+
+
 outerGroup.add(innerGroup);
 
 // ===== Оси родителя innerGroup =====
