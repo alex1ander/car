@@ -12,7 +12,13 @@
   </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/lines/Line2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/lines/LineSegments2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/lines/LineMaterial.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/lines/LineGeometry.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>
 
@@ -42,3 +48,4 @@ canvas {
 }
 
 </style>
+

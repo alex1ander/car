@@ -58,9 +58,9 @@ scene.add(outerGroup);
 const innerGroup = new THREE.Group();
 outerGroup.add(innerGroup);
 
-// ===== Свет привязан к outerGroup =====
+// ===== Свет =====
 const light = new THREE.DirectionalLight(0xffffff, 1.2);
-light.position.set(0,0,15); // на оси Z
+light.position.set(0,0,15);
 outerGroup.add(light);
 scene.add(new THREE.AmbientLight(0xffffff, 1.5));
 
@@ -76,33 +76,27 @@ function createMaterial() {
   const mat = new MaterialClass({ color: matConfig.color, metalness:0.8, roughness:0.4 });
 
   if(matConfig.useTexture){
-    const tex = new THREE.CanvasTexture(generateGradientTexture());
-    mat.map = tex;
+    mat.map = new THREE.CanvasTexture(generateGradientTexture());
   }
   return mat;
 }
 
-
-
-function generateGradientTexture(colorTop='#266AD5', colorBottom='#66CCFF', size=512){
+// ===== Градиент =====
+function generateGradientTexture(colorTop='#F2E641', colorBottom='#EED906', size=512){
   const c = document.createElement('canvas');
   c.width = c.height = size;
   const ctx = c.getContext('2d');
 
-  // Линейный градиент сверху вниз
   const grad = ctx.createLinearGradient(0,0,0,size);
   grad.addColorStop(0, colorTop);
   grad.addColorStop(1, colorBottom);
 
   ctx.fillStyle = grad;
   ctx.fillRect(0,0,size,size);
-
   return c;
 }
 
-
 // ===== Создание блоков =====
-const edgeMat = new THREE.LineBasicMaterial({color:0xffffff, linewidth:2});
 const PW = CONFIG.block.width, PH = CONFIG.block.height, PD = CONFIG.block.depth;
 
 const panels = CONFIG.blocks.map(cfg => {
@@ -110,7 +104,8 @@ const panels = CONFIG.blocks.map(cfg => {
   const mat = createMaterial();
   const mesh = new THREE.Mesh(geo, mat);
 
-  // Рёбра блока
+  // ===== Рёбра ровно =====
+  const edgeMat = new THREE.LineBasicMaterial({ color:0xffffff, linewidth:2 });
   const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat);
   mesh.add(edges);
 
@@ -129,7 +124,7 @@ const panels = CONFIG.blocks.map(cfg => {
   };
 });
 
-// ===== Функция для отображения координат =====
+// ===== Функция отображения координат =====
 function displayCoords() {
   if(!showCoords) return;
   panels.forEach(p=>{
