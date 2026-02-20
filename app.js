@@ -14,18 +14,18 @@ const CONFIG = {
         useTexture: true,
     },
     blocks: [
-        { id:'A', start:{x:7,   y:3,  z:7,   rotX:-50, rotY:36,  rotZ:12},  end:{x:1.2,  y:0, z:1.2,  rotX:0, rotY:0, rotZ:0} },
-        { id:'B', start:{x:-5,  y:-3, z:1,   rotX:-54, rotY:-33, rotZ:-74}, end:{x:-1.2, y:0, z:1.2,  rotX:0, rotY:0, rotZ:0} },
-        { id:'C', start:{x:4,   y:-4, z:3,   rotX:56,  rotY:-43, rotZ:-66}, end:{x:1.2,  y:0, z:-1.2, rotX:0, rotY:0, rotZ:0} },
-        { id:'D', start:{x:-4.3,y:5,  z:-1.8,rotX:30,  rotY:78,  rotZ:40},  end:{x:-1.2, y:0, z:-1.2, rotX:0, rotY:0, rotZ:0} },
+        { id:'A', start:{x:7,   y:3,  z:7,   rotX:-50, rotY:36,  rotZ:12},  end:{x:1.4,  y:0, z:1.4,  rotX:0, rotY:0, rotZ:0} },
+        { id:'B', start:{x:-5,  y:-3, z:1,   rotX:-54, rotY:-33, rotZ:-74}, end:{x:-1.4, y:0, z:1.4,  rotX:0, rotY:0, rotZ:0} },
+        { id:'C', start:{x:4,   y:-4, z:3,   rotX:56,  rotY:-43, rotZ:-66}, end:{x:1.4,  y:0, z:-1.4, rotX:0, rotY:0, rotZ:0} },
+        { id:'D', start:{x:-4.3,y:5,  z:-1.8,rotX:30,  rotY:78,  rotZ:40},  end:{x:-1.4, y:0, z:-1.4, rotX:0, rotY:0, rotZ:0} },
     ],
 
     // За сколько секунд блоки проходят полный путь start → end (и обратно с той же скоростью)
-    animDuration: 3,
+    animDuration: 7,
 
     rotation: {
-        rotateDuration:           15,  // секунд на оборот обычно
-        hoverRotateDuration:       7,  // секунд на оборот при ховере
+        rotateDuration:          15,   // секунд на оборот обычно
+        hoverRotateDuration:      7,   // секунд на оборот при ховере
         speedTransitionDuration: 0.8,  // за сколько секунд меняется скорость вращения
     },
     camera: {
@@ -75,8 +75,8 @@ if (showCoords) innerGroup.add(new THREE.AxesHelper(5));
 
 // ===== Материал =====
 function generateGradientTexture(size = 512) {
-    const c   = document.createElement('canvas');
-    c.width   = c.height = size;
+    const c    = document.createElement('canvas');
+    c.width    = c.height = size;
     const ctx  = c.getContext('2d');
     const grad = ctx.createLinearGradient(12, 12, 12, size);
     grad.addColorStop(0, '#dddddd');
@@ -87,11 +87,11 @@ function generateGradientTexture(size = 512) {
 }
 
 function createMaterial() {
-    const mc = CONFIG.material;
+    const mc  = CONFIG.material;
     const Cls = {
-        MeshStandardMaterial:  THREE.MeshStandardMaterial,
-        MeshPhysicalMaterial:  THREE.MeshPhysicalMaterial,
-        MeshPhongMaterial:     THREE.MeshPhongMaterial,
+        MeshStandardMaterial: THREE.MeshStandardMaterial,
+        MeshPhysicalMaterial: THREE.MeshPhysicalMaterial,
+        MeshPhongMaterial:    THREE.MeshPhongMaterial,
     }[mc.type] || THREE.MeshStandardMaterial;
     const mat = new Cls({ color: mc.color, metalness: 0.8, roughness: 0.4 });
     if (mc.useTexture) mat.map = new THREE.CanvasTexture(generateGradientTexture());
@@ -113,9 +113,8 @@ const panels = CONFIG.blocks.map(cfg => {
     const startPos = new THREE.Vector3(cfg.start.x, cfg.start.y, cfg.start.z);
     const startRot = new THREE.Euler(deg(cfg.start.rotX), deg(cfg.start.rotY), deg(cfg.start.rotZ));
     const endPos   = new THREE.Vector3(cfg.end.x,   cfg.end.y,   cfg.end.z);
-    const endRot   = new THREE.Euler(deg(cfg.end.rotX),   deg(cfg.end.rotY),   deg(cfg.end.rotZ));
+    const endRot   = new THREE.Euler(deg(cfg.end.rotX), deg(cfg.end.rotY), deg(cfg.end.rotZ));
 
-    // Начальная позиция
     mesh.position.copy(isStart ? startPos : endPos);
     mesh.rotation.copy(isStart ? startRot : endRot);
 
@@ -124,18 +123,16 @@ const panels = CONFIG.blocks.map(cfg => {
 
 // ===== Helpers =====
 function lerp(a, b, t) { return a + (b - a) * t; }
-function easeOut(t)    { return 1 - Math.pow(1 - t, 3); }
 
-// Применить progress (0 = start, 1 = end) к блокам
+// Применить progress (0 = start, 1 = end) линейно, без easing
 function applyProgress(t) {
-    const e = easeOut(t);
     panels.forEach(p => {
-        p.mesh.position.x = lerp(p.startPos.x, p.endPos.x, e);
-        p.mesh.position.y = lerp(p.startPos.y, p.endPos.y, e);
-        p.mesh.position.z = lerp(p.startPos.z, p.endPos.z, e);
-        p.mesh.rotation.x = lerp(p.startRot.x, p.endRot.x, e);
-        p.mesh.rotation.y = lerp(p.startRot.y, p.endRot.y, e);
-        p.mesh.rotation.z = lerp(p.startRot.z, p.endRot.z, e);
+        p.mesh.position.x = lerp(p.startPos.x, p.endPos.x, t);
+        p.mesh.position.y = lerp(p.startPos.y, p.endPos.y, t);
+        p.mesh.position.z = lerp(p.startPos.z, p.endPos.z, t);
+        p.mesh.rotation.x = lerp(p.startRot.x, p.endRot.x, t);
+        p.mesh.rotation.y = lerp(p.startRot.y, p.endRot.y, t);
+        p.mesh.rotation.z = lerp(p.startRot.z, p.endRot.z, t);
     });
 }
 
@@ -145,14 +142,8 @@ if (!enableAnimation) {
     renderer.render(scene, camera);
 } else {
 
-    // progress: 0 = полностью на start, 1 = полностью на end
     let progress = isStart ? 0 : 1;
-
-    // Скорость: сколько прогресса в секунду = 1 / animDuration
-    // При ховере direction = -1 (назад к start), иначе = 1 (вперёд к end)
-    // Скорость одинакова в обе стороны — поэтому если прошло 7с из 15,
-    // при ховере вернётся ровно за те же 7с
-    const speed = 1 / CONFIG.animDuration;
+    const speed  = 1 / CONFIG.animDuration;
 
     let isHovered       = false;
     let currentRotSpeed = (2 * Math.PI) / CONFIG.rotation.rotateDuration;
@@ -187,9 +178,7 @@ if (!enableAnimation) {
             * Math.min(dt / CONFIG.camera.transitionDuration, 1);
         camera.position.z = currentCameraZ;
 
-        // Прогресс блоков:
-        // - не наведено → direction +1 → движемся к end
-        // - наведено    → direction -1 → движемся обратно к start с той же скоростью
+        // Прогресс — линейный, одинаковая скорость в обе стороны, без easing
         const direction = (enableHoverAnimation && isHovered) ? -1 : 1;
         progress = Math.max(0, Math.min(1, progress + direction * speed * dt));
 
