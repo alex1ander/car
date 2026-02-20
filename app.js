@@ -1,222 +1,202 @@
-// ===== Настройки анимации ===== 
-const enableAnimation = true; 
-const isLooping = true; 
-const isStart = true; 
-const showCoords = false; 
+// ===== Настройки =====
+const enableAnimation      = true;  // включить анимацию
+const enableHoverAnimation = true;  // включить разлёт при ховере
+const isStart              = true;  // true = начать со start-позиций, false = начать с end-позиций
+const showCoords           = false;
 
-// ===== Конфигурация ===== 
-const CONFIG = { 
-    block: { 
-        width: 1.6, 
-        depth: 1.6, 
-        height: 5, 
-    }, 
-    assembleDuration: 15, 
-    disassembleDuration: 15, 
-    holdDuration: 5, 
-    holdDisassembledDuration: 5,
-    TILT_X: -15, 
-    space: 1.2, 
-    material: { 
-        color: 0xffffff, 
-        type: 'MeshPhysicalMaterial', 
-        useTexture: true, 
-    }, 
-    blocks: [ 
-        { id:'A', start:{x:8,y:4,z:8,rotX:-50,rotY:36,rotZ:12}, end:{x:1.2,y:0,z:1.2,rotX:0,rotY:0,rotZ:0} }, 
-        { id:'B', start:{x:-6,y:-3,z:1,rotX:-54,rotY:-33,rotZ:-74}, end:{x:-1.2,y:0,z:1.2,rotX:0,rotY:0,rotZ:0} }, 
-        { id:'C', start:{x:5,y:-5,z:4,rotX:56,rotY:-43,rotZ:-66}, end:{x:1.2,y:0,z:-1.2,rotX:0,rotY:0,rotZ:0} }, 
-        { id:'D', start:{x:-5,y:6,z:-1.8,rotX:40,rotY:78,rotZ:30}, end:{x:-1.2,y:0,z:-1.2,rotX:0,rotY:0,rotZ:0} }, 
-    ], 
-    rotation: { 
-        baseSpeed: (2 * Math.PI) / 15, 
-        smoothing: 3.0, 
-        animMultiplier: 1.5, // во сколько раз анимация блоков быстрее вращения
-    } 
-}; 
+// ===== Конфигурация =====
+const CONFIG = {
+    block: { width: 2, depth: 2, height: 5 },
+    TILT_X: -7,
+    material: {
+        type: 'MeshPhysicalMaterial',
+        metalness: 1,
+        useTexture: true,
+    },
+    blocks: [
+        { id:'A', start:{x:7,   y:3,  z:7,   rotX:-50, rotY:36,  rotZ:12},  end:{x:1.2,  y:0, z:1.2,  rotX:0, rotY:0, rotZ:0} },
+        { id:'B', start:{x:-5,  y:-3, z:1,   rotX:-54, rotY:-33, rotZ:-74}, end:{x:-1.2, y:0, z:1.2,  rotX:0, rotY:0, rotZ:0} },
+        { id:'C', start:{x:4,   y:-4, z:3,   rotX:56,  rotY:-43, rotZ:-66}, end:{x:1.2,  y:0, z:-1.2, rotX:0, rotY:0, rotZ:0} },
+        { id:'D', start:{x:-4.3,y:5,  z:-1.8,rotX:30,  rotY:78,  rotZ:40},  end:{x:-1.2, y:0, z:-1.2, rotX:0, rotY:0, rotZ:0} },
+    ],
 
-// ===== Canvas и сцена ===== 
-const container = document.querySelector('.hero-container'); 
-const canvas = document.getElementById('c'); 
-const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true }); 
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); 
-renderer.setSize(container.clientWidth, container.clientHeight); 
-const scene = new THREE.Scene(); 
-const camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 300); 
-camera.position.set(0, 0, 15); 
-new ResizeObserver(() => { 
-    camera.aspect = container.clientWidth / container.clientHeight; 
-    camera.updateProjectionMatrix(); 
-    renderer.setSize(container.clientWidth, container.clientHeight); 
-}).observe(container); 
+    // За сколько секунд блоки проходят полный путь start → end (и обратно с той же скоростью)
+    animDuration: 3,
 
-function deg(d) { return d * Math.PI / 180; } 
+    rotation: {
+        rotateDuration:           15,  // секунд на оборот обычно
+        hoverRotateDuration:       7,  // секунд на оборот при ховере
+        speedTransitionDuration: 0.8,  // за сколько секунд меняется скорость вращения
+    },
+    camera: {
+        defaultY: 0.6,
+        defaultZ: 13,
+        hoverZ:   13,
+        transitionDuration: 0.5,
+    },
+};
 
-// ===== Группа света ===== 
-const lightGroup = new THREE.Group(); 
-scene.add(lightGroup); 
-const light = new THREE.DirectionalLight(0xffffff, 1.2); 
-light.position.set(16, 16, 4); 
-lightGroup.add(light); 
-scene.add(new THREE.AmbientLight(0xffffff, 1.5)); 
+// ===== Canvas и сцена =====
+const container = document.querySelector('.hero-container');
+const canvas    = document.getElementById('c');
+const renderer  = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(container.clientWidth, container.clientHeight);
 
-// ===== Группы объектов ===== 
-const outerGroup = new THREE.Group(); 
-outerGroup.rotation.x = deg(CONFIG.TILT_X); 
-scene.add(outerGroup); 
-const innerGroup = new THREE.Group(); 
-outerGroup.rotation.y = deg(45); 
-outerGroup.add(innerGroup); 
+const scene  = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 300);
+camera.position.set(0, CONFIG.camera.defaultY, CONFIG.camera.defaultZ);
 
-// ===== Оси (отладка) ===== 
-if (showCoords) { 
-    innerGroup.add(new THREE.AxesHelper(5)); 
-    lightGroup.add(new THREE.AxesHelper(5)); 
-} 
+new ResizeObserver(() => {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+}).observe(container);
 
-// ===== Материал ===== 
-function generateGradientTexture(colorTop='#5482cc', colorBottom='#266AD5', size=512) { 
-    const c = document.createElement('canvas'); 
-    c.width = c.height = size; 
-    const ctx = c.getContext('2d'); 
-    const grad = ctx.createLinearGradient(0, 0, 0, size); 
-    grad.addColorStop(0, colorTop); 
-    grad.addColorStop(0.7, colorBottom); 
-    ctx.fillStyle = grad; 
-    ctx.fillRect(0, 0, size, size); 
-    return c; 
-} 
+function deg(d) { return d * Math.PI / 180; }
 
-function createMaterial() { 
-    const matConfig = CONFIG.material; 
-    const MaterialClass = { 
-        'MeshStandardMaterial': THREE.MeshStandardMaterial, 
-        'MeshPhysicalMaterial': THREE.MeshPhysicalMaterial, 
-        'MeshPhongMaterial': THREE.MeshPhongMaterial, 
-    }[matConfig.type] || THREE.MeshStandardMaterial; 
-    const mat = new MaterialClass({ color: matConfig.color, metalness: 0.8, roughness: 0.4 }); 
-    if (matConfig.useTexture) { 
-        mat.map = new THREE.CanvasTexture(generateGradientTexture()); 
-    } 
-    return mat; 
-} 
+// ===== Свет =====
+const lightGroup = new THREE.Group();
+scene.add(lightGroup);
+const light = new THREE.DirectionalLight(0xffffff, 0.8);
+light.position.set(16, 16, 4);
+lightGroup.add(light);
+scene.add(new THREE.AmbientLight(0xffffff, 2));
 
-// ===== Создание блоков ===== 
-const PW = CONFIG.block.width, PH = CONFIG.block.height, PD = CONFIG.block.depth; 
-const panels = CONFIG.blocks.map(cfg => { 
-    const geo = new THREE.BoxGeometry(PW, PH, PD); 
-    const mat = createMaterial(); 
-    const mesh = new THREE.Mesh(geo, mat); 
-    const edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 }); 
-    const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), edgeMat); 
-    mesh.add(edges); 
-    innerGroup.add(mesh); 
-    if (isStart) { 
-        mesh.position.set(cfg.start.x, cfg.start.y, cfg.start.z); 
-        mesh.rotation.set(deg(cfg.start.rotX), deg(cfg.start.rotY), deg(cfg.start.rotZ)); 
-    } else { 
-        mesh.position.set(cfg.end.x, cfg.end.y, cfg.end.z); 
-        mesh.rotation.set(deg(cfg.end.rotX), deg(cfg.end.rotY), deg(cfg.end.rotZ)); 
-    } 
-    return { 
-        id: cfg.id, mesh, 
-        startPos: new THREE.Vector3(cfg.start.x, cfg.start.y, cfg.start.z), 
-        startRot: new THREE.Euler(deg(cfg.start.rotX), deg(cfg.start.rotY), deg(cfg.start.rotZ)), 
-        endPos: new THREE.Vector3(cfg.end.x, cfg.end.y, cfg.end.z), 
-        endRot: new THREE.Euler(deg(cfg.end.rotX), deg(cfg.end.rotY), deg(cfg.end.rotZ)), 
-    }; 
-}); 
+// ===== Группы =====
+const outerGroup = new THREE.Group();
+outerGroup.rotation.x = deg(CONFIG.TILT_X);
+outerGroup.rotation.y = deg(45);
+scene.add(outerGroup);
+const innerGroup = new THREE.Group();
+outerGroup.add(innerGroup);
 
-// ===== Helpers ===== 
-function lerp(a, b, t) { return a + (b - a) * t; } 
-function lerpV(p, a, b, t) { p.x = lerp(a.x, b.x, t); p.y = lerp(a.y, b.y, t); p.z = lerp(a.z, b.z, t); } 
-function lerpR(r, a, b, t) { r.x = lerp(a.x, b.x, t); r.y = lerp(a.y, b.y, t); r.z = lerp(a.z, b.z, t); } 
-function easeOut(t) { return 1 - Math.pow(1 - t, 3); } 
-function easeIn(t) { return t * t * t; } 
+if (showCoords) innerGroup.add(new THREE.AxesHelper(5));
 
+// ===== Материал =====
+function generateGradientTexture(size = 512) {
+    const c   = document.createElement('canvas');
+    c.width   = c.height = size;
+    const ctx  = c.getContext('2d');
+    const grad = ctx.createLinearGradient(12, 12, 12, size);
+    grad.addColorStop(0, '#dddddd');
+    grad.addColorStop(1, '#4287f5');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, size, size);
+    return c;
+}
 
+function createMaterial() {
+    const mc = CONFIG.material;
+    const Cls = {
+        MeshStandardMaterial:  THREE.MeshStandardMaterial,
+        MeshPhysicalMaterial:  THREE.MeshPhysicalMaterial,
+        MeshPhongMaterial:     THREE.MeshPhongMaterial,
+    }[mc.type] || THREE.MeshStandardMaterial;
+    const mat = new Cls({ color: mc.color, metalness: 0.8, roughness: 0.4 });
+    if (mc.useTexture) mat.map = new THREE.CanvasTexture(generateGradientTexture());
+    return mat;
+}
 
-// ===== Анимация ===== 
-if (!enableAnimation) { 
-    renderer.render(scene, camera); 
-} else { 
-    let currentSpeedMult = 1.0;
-    let isHovered = false; 
+// ===== Блоки =====
+const PW = CONFIG.block.width, PH = CONFIG.block.height, PD = CONFIG.block.depth;
 
-    const hoverZone = document.getElementById('hero-right'); 
-    hoverZone.addEventListener('mouseenter', () => { isHovered = true; }); 
-    hoverZone.addEventListener('mouseleave', () => { isHovered = false; }); 
-    hoverZone.addEventListener('touchstart', () => { isHovered = true; }, { passive: true }); 
-    hoverZone.addEventListener('touchend', () => { isHovered = false; }, { passive: true }); 
+const panels = CONFIG.blocks.map(cfg => {
+    const geo  = new THREE.BoxGeometry(PW, PH, PD);
+    const mesh = new THREE.Mesh(geo, createMaterial());
+    mesh.add(new THREE.LineSegments(
+        new THREE.EdgesGeometry(geo),
+        new THREE.LineBasicMaterial({ color: 0xB0B0B0, linewidth: 2 })
+    ));
+    innerGroup.add(mesh);
 
-    const PHASE = { ASSEMBLE: 0, HOLD: 1, DISASSEMBLE: 2, HOLD_DISASSEMBLED: 3, PAUSE: 4 }; // ← новая фаза
-    let phase = isStart ? PHASE.HOLD_DISASSEMBLED : PHASE.HOLD;
-    let phaseTime = 0; 
-    let last = performance.now(); 
-    let animationDone = false; 
+    const startPos = new THREE.Vector3(cfg.start.x, cfg.start.y, cfg.start.z);
+    const startRot = new THREE.Euler(deg(cfg.start.rotX), deg(cfg.start.rotY), deg(cfg.start.rotZ));
+    const endPos   = new THREE.Vector3(cfg.end.x,   cfg.end.y,   cfg.end.z);
+    const endRot   = new THREE.Euler(deg(cfg.end.rotX),   deg(cfg.end.rotY),   deg(cfg.end.rotZ));
 
-    function animate(now) { 
-        if (animationDone) return; 
-        requestAnimationFrame(animate); 
-        const dt = Math.min((now - last) / 1000, 0.05); 
-        last = now; 
+    // Начальная позиция
+    mesh.position.copy(isStart ? startPos : endPos);
+    mesh.rotation.copy(isStart ? startRot : endRot);
 
-        const targetMult = isHovered ? 2.0 : 1.0; 
-        currentSpeedMult += (targetMult - currentSpeedMult) * dt * CONFIG.rotation.smoothing; 
+    return { mesh, startPos, startRot, endPos, endRot };
+});
 
-        outerGroup.rotation.y += CONFIG.rotation.baseSpeed * currentSpeedMult * dt; 
+// ===== Helpers =====
+function lerp(a, b, t) { return a + (b - a) * t; }
+function easeOut(t)    { return 1 - Math.pow(1 - t, 3); }
 
-        const adt = dt * currentSpeedMult * CONFIG.rotation.animMultiplier; 
-        phaseTime += adt; 
+// Применить progress (0 = start, 1 = end) к блокам
+function applyProgress(t) {
+    const e = easeOut(t);
+    panels.forEach(p => {
+        p.mesh.position.x = lerp(p.startPos.x, p.endPos.x, e);
+        p.mesh.position.y = lerp(p.startPos.y, p.endPos.y, e);
+        p.mesh.position.z = lerp(p.startPos.z, p.endPos.z, e);
+        p.mesh.rotation.x = lerp(p.startRot.x, p.endRot.x, e);
+        p.mesh.rotation.y = lerp(p.startRot.y, p.endRot.y, e);
+        p.mesh.rotation.z = lerp(p.startRot.z, p.endRot.z, e);
+    });
+}
 
-        if (phase === PHASE.ASSEMBLE) { 
-            const t = easeOut(Math.min(phaseTime / CONFIG.assembleDuration, 1)); 
-            panels.forEach(p => { 
-                lerpV(p.mesh.position, p.startPos, p.endPos, t); 
-                lerpR(p.mesh.rotation, p.startRot, p.endRot, t); 
-            }); 
-            if (phaseTime >= CONFIG.assembleDuration) { 
-                phase = PHASE.HOLD; 
-                phaseTime = 0; 
-            } 
-        } else if (phase === PHASE.HOLD) { 
-            if (phaseTime >= CONFIG.holdDuration) { 
-                if (!isLooping) { 
-                    animationDone = true; 
-                    renderer.render(scene, camera); 
-                    return; 
-                } 
-                phase = PHASE.DISASSEMBLE; 
-                phaseTime = 0; 
-            } 
-        } else if (phase === PHASE.DISASSEMBLE) { 
-            const t = easeIn(Math.min(phaseTime / CONFIG.disassembleDuration, 1)); 
-            panels.forEach(p => { 
-                lerpV(p.mesh.position, p.endPos, p.startPos, t); 
-                lerpR(p.mesh.rotation, p.endRot, p.startRot, t); 
-            }); 
-            if (phaseTime >= CONFIG.disassembleDuration) { 
-                phase = PHASE.HOLD_DISASSEMBLED; // ← идём в новую фазу
-                phaseTime = 0; 
-                panels.forEach(p => { 
-                    p.mesh.position.copy(p.startPos); 
-                    p.mesh.rotation.copy(p.startRot); 
-                }); 
-            } 
-        } else if (phase === PHASE.HOLD_DISASSEMBLED) { // ← новая фаза — блоки висят разлетевшимися
-            if (phaseTime >= CONFIG.holdDisassembledDuration) { 
-                phase = PHASE.PAUSE; 
-                phaseTime = 0; 
-            } 
-        } else if (phase === PHASE.PAUSE) { 
-            if (phaseTime >= 0.8) { 
-                phase = PHASE.ASSEMBLE; 
-                phaseTime = 0; 
-            } 
-        } 
+// ===== Запуск =====
+if (!enableAnimation) {
+    applyProgress(isStart ? 0 : 1);
+    renderer.render(scene, camera);
+} else {
 
-        renderer.render(scene, camera); 
-    } 
+    // progress: 0 = полностью на start, 1 = полностью на end
+    let progress = isStart ? 0 : 1;
 
-    animate(performance.now()); 
+    // Скорость: сколько прогресса в секунду = 1 / animDuration
+    // При ховере direction = -1 (назад к start), иначе = 1 (вперёд к end)
+    // Скорость одинакова в обе стороны — поэтому если прошло 7с из 15,
+    // при ховере вернётся ровно за те же 7с
+    const speed = 1 / CONFIG.animDuration;
+
+    let isHovered       = false;
+    let currentRotSpeed = (2 * Math.PI) / CONFIG.rotation.rotateDuration;
+    let currentCameraZ  = CONFIG.camera.defaultZ;
+
+    if (enableHoverAnimation) {
+        const zone = document.getElementById('hero-right');
+        zone.addEventListener('mouseenter', () => { isHovered = true;  });
+        zone.addEventListener('mouseleave', () => { isHovered = false; });
+        zone.addEventListener('touchstart', () => { isHovered = true;  }, { passive: true });
+        zone.addEventListener('touchend',   () => { isHovered = false; }, { passive: true });
+    }
+
+    let last = performance.now();
+
+    function animate(now) {
+        requestAnimationFrame(animate);
+        const dt = Math.min((now - last) / 1000, 0.05);
+        last = now;
+
+        // Вращение — плавная смена скорости
+        const targetRotSpeed = (2 * Math.PI) / (isHovered
+            ? CONFIG.rotation.hoverRotateDuration
+            : CONFIG.rotation.rotateDuration);
+        currentRotSpeed += (targetRotSpeed - currentRotSpeed)
+            * Math.min(dt / CONFIG.rotation.speedTransitionDuration, 1);
+        outerGroup.rotation.y += currentRotSpeed * dt;
+
+        // Камера
+        const targetZ = isHovered ? CONFIG.camera.hoverZ : CONFIG.camera.defaultZ;
+        currentCameraZ += (targetZ - currentCameraZ)
+            * Math.min(dt / CONFIG.camera.transitionDuration, 1);
+        camera.position.z = currentCameraZ;
+
+        // Прогресс блоков:
+        // - не наведено → direction +1 → движемся к end
+        // - наведено    → direction -1 → движемся обратно к start с той же скоростью
+        const direction = (enableHoverAnimation && isHovered) ? -1 : 1;
+        progress = Math.max(0, Math.min(1, progress + direction * speed * dt));
+
+        applyProgress(progress);
+
+        renderer.render(scene, camera);
+    }
+
+    animate(performance.now());
 }
