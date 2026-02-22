@@ -1,16 +1,19 @@
 // ===== Настройки =====
-const enableAnimation      = true;  // включить анимацию
+const enableAnimation      = false;  // включить анимацию
 const enableHoverAnimation = true;  // включить разлёт при ховере
-const isStart              = true;  // true = начать со start-позиций, false = начать с end-позиций
+const isStart              = false;  // true = начать со start-позиций, false = начать с end-позиций
 const showCoords           = false;
 
 // ===== Конфигурация =====
 const CONFIG = {
     block: { width: 2, depth: 2, height: 5 },
-    TILT_X: -7,
+    TILT_X: 0,
     material: {
         type: 'MeshPhysicalMaterial',
         metalness: 1,
+        roughness: 0.0,
+        emmissive: 0x000000,
+        clearcoat: 1,
         useTexture: true,
     },
     blocks: [
@@ -29,9 +32,10 @@ const CONFIG = {
         speedTransitionDuration: 0.8,  // за сколько секунд меняется скорость вращения
     },
     camera: {
-        defaultY: 0.6,
-        defaultZ: 13,
-        hoverZ:   13,
+        fov: 75,
+        defaultY: 0,
+        defaultZ: 8,
+        hoverZ:   8,
         transitionDuration: 0.5,
     },
 };
@@ -44,7 +48,12 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(container.clientWidth, container.clientHeight);
 
 const scene  = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 300);
+const camera = new THREE.PerspectiveCamera(
+  CONFIG.camera.fov,
+  container.clientWidth / container.clientHeight,
+  0.1,
+  400
+);
 camera.position.set(0, CONFIG.camera.defaultY, CONFIG.camera.defaultZ);
 
 new ResizeObserver(() => {
@@ -59,7 +68,7 @@ function deg(d) { return d * Math.PI / 180; }
 const lightGroup = new THREE.Group();
 scene.add(lightGroup);
 const light = new THREE.DirectionalLight(0xffffff, 0.8);
-light.position.set(16, 16, 4);
+light.position.set(16, 11, 4);
 lightGroup.add(light);
 scene.add(new THREE.AmbientLight(0xffffff, 2));
 
@@ -79,8 +88,9 @@ function generateGradientTexture(size = 512) {
     c.width    = c.height = size;
     const ctx  = c.getContext('2d');
     const grad = ctx.createLinearGradient(12, 12, 12, size);
-    grad.addColorStop(0, '#dddddd');
-    grad.addColorStop(1, '#4287f5');
+    grad.addColorStop(0, '#63b1ef');
+    grad.addColorStop(0.48, '#357ad9');
+    grad.addColorStop(1, '#0d2f9a');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, size, size);
     return c;
