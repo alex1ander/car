@@ -1,3 +1,4 @@
+@use "header";
 @use "hero";
 @use "glass-button";
 
@@ -31,6 +32,10 @@
     box-sizing: border-box;
     font-family: "HelveticaNeueCyr", sans-serif;
     color: #ffffff;
+}
+
+a{
+  text-decoration: none;
 }
 
 main{

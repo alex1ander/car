@@ -1,4 +1,60 @@
 @charset "UTF-8";
+header {
+  position: sticky;
+  height: 0;
+  z-index: 100;
+  top: 20px;
+}
+header .container {
+  height: auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+header .glass-menu {
+  position: absolute; /* центрируем независимо от flex */
+  left: 50%;
+  transform: translateX(-50%);
+}
+header {
+  /* Крайние элементы — просто оставляем в flex */
+}
+header .logo-place, header .glass-contact {
+  z-index: 1; /* чтобы не перекрывал центральный */
+}
+header .logo-place {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .glass-button-wrapper {
+  padding: 4px;
+}
+header .header-menu {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+}
+header .header-menu li {
+  display: flex;
+}
+header .header-menu li a {
+  padding: 14px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 100px;
+}
+header .header-menu li a:hover {
+  background: rgba(245, 255, 249, 0.0509803922);
+  color: #71CDB3;
+}
+header .header-menu .phone-number {
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .hero-wrapper {
   flex: 1;
   height: 100%;
@@ -7,12 +63,42 @@
   display: flex;
   flex-direction: column;
 }
-.hero-wrapper img {
+.hero-wrapper .bg-image {
+  background: #141B19;
   position: absolute;
   z-index: -1;
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+.hero-wrapper .light {
+  position: absolute;
+  aspect-ratio: 1;
+  width: 20%;
+  border-radius: 50%;
+  background-color: rgb(81, 174, 148);
+  filter: blur(120px);
+  pointer-events: none;
+}
+.hero-wrapper .light.light-1 {
+  top: 0%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+}
+.hero-wrapper .light.light-2 {
+  top: 0%;
+  right: 24%;
+  transform: translate(50%, -50%);
+}
+.hero-wrapper .light.light-3 {
+  bottom: 15%;
+  left: 0%;
+  transform: translate(-50%, 50%);
+}
+.hero-wrapper .light.light-4 {
+  bottom: 0%;
+  right: 11%;
+  transform: translate(50%, 50%);
 }
 .hero-wrapper .line-titles-block {
   display: flex;
@@ -20,9 +106,13 @@
   position: absolute;
   left: 0;
   right: 0;
+  top: 20%;
 }
 .hero-wrapper .line-titles-block .line-title {
-  color: white;
+  background: linear-gradient(0deg, rgba(88, 158, 138, 0.1) 19.81%, #589E8A 125.47%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-size: 190px;
   text-align: center;
   text-transform: uppercase;
@@ -30,6 +120,7 @@
 .hero-wrapper .bottom-part {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   margin-top: auto;
   width: 100%;
 }
@@ -39,55 +130,59 @@
   text-wrap: balance;
 }
 .hero-wrapper .bottom-part .short-description {
+  text-transform: uppercase;
   font-size: 54px;
+  background: linear-gradient(263.84deg, #BFEFD2 0%, #F5FFF9 99.22%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-button-wrapper {
+  display: inline-block;
+  border-radius: 100px;
+  padding: 10px;
+  background: radial-gradient(50% 220% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
+  position: relative;
+}
+.glass-button-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  padding: 1px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.2) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .glass-button {
+  display: block;
+  font-size: 16px;
+  padding: 19px 33px;
+  border-radius: 100px;
   text-transform: uppercase;
   font-weight: 500;
-  position: relative;
-  font-size: 16px;
-  padding: 18px 50px;
-  border-radius: 100px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(33.13% 37.96% at 83.13% 0%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(50% 57.28% at 0% 100%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(85.94% 85.94% at 50% 100%, rgba(109, 196, 171, 0.5) 0%, rgba(109, 196, 171, 0) 100%);
   border: none;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(33.13% 37.96% at 83.13% 0%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(50% 57.28% at 0% 100%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(85.94% 85.94% at 50% 100%, rgba(109, 196, 171, 0.5) 0%, rgba(109, 196, 171, 0) 100%);
+  backdrop-filter: blur(4px);
   color: white;
   cursor: pointer;
-  overflow: visible; /* чтобы псевдоэлемент ::after был виден */
-  z-index: 1;
+  position: relative;
 }
-
 .glass-button::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   border-radius: 100px;
-  padding: 1px; /* толщина бордера */
-  background: radial-gradient(50% 219.64% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
+  padding: 1px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.15) 35%, rgba(255, 255, 255, 0.05) 65%, rgba(255, 255, 255, 0.25) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
+  -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-  z-index: 2;
-}
-
-/* Стекло позади кнопки */
-.glass-button::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: calc(100% + 20px);
-  height: calc(100% + 20px);
-  border-radius: 100px;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), radial-gradient(33.13% 37.96% at 83.13% 0%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
-  z-index: 0;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); /* мягкое свечение */
-  border: 1px solid rgba(255, 255, 255, 0.25); /* такая же обводка, но можно сделать градиентной */
 }
 
 @font-face {
@@ -117,6 +212,10 @@
   box-sizing: border-box;
   font-family: "HelveticaNeueCyr", sans-serif;
   color: #ffffff;
+}
+
+a {
+  text-decoration: none;
 }
 
 main {

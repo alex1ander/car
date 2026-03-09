@@ -1,0 +1,65 @@
+header{
+
+    position: sticky;
+    height: 0;
+    z-index: 100;
+    top: 20px;
+
+    .container{
+        height: auto;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+         position: relative;
+    }
+
+
+    .glass-menu {
+        position: absolute;  /* центрируем независимо от flex */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Крайние элементы — просто оставляем в flex */
+    .logo-place,.glass-contact {
+        z-index: 1; /* чтобы не перекрывал центральный */
+    }
+
+
+    .logo-place{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .glass-button-wrapper{
+        padding: 4px;
+    }
+
+    .header-menu{
+        display: flex;
+        gap: 4px;
+        list-style: none;
+
+        li{
+            display: flex;
+            a{
+                padding: 14px;
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 500;
+                border-radius: 100px;
+
+                &:hover{
+                    background: #F5FFF90D;
+                    color: #71CDB3;
+                }
+            }
+        }
+
+        .phone-number{
+            font-size: 14px;
+            font-weight: 700;
+        }
+    }
+}

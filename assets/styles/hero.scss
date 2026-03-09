@@ -6,12 +6,45 @@
     display: flex;
     flex-direction: column;
 
-    img{
+    .bg-image{
+        background: #141B19;
         position: absolute;
         z-index: -1;
         object-fit: cover;
         height: 100%;
         width: 100%;
+    }
+
+    .light {
+        position: absolute;
+        aspect-ratio: 1;                // всегда квадрат
+        width: 20%;                      // базовый размер относительно контейнера
+        border-radius: 50%;             // круг
+        background-color: rgba(81, 174, 148, 1);
+        filter: blur(120px);
+        pointer-events: none;
+
+        // смещение через transform, чтобы половина была скрыта
+        &.light-1 {
+        top: 0%;
+        left: 23%;
+        transform: translate(-50%, -50%);
+        }
+        &.light-2 {
+        top: 0%;
+        right: 24%;
+        transform: translate(50%, -50%);
+        }
+        &.light-3 {
+        bottom: 15%;
+        left: 0%;
+        transform: translate(-50%, 50%);
+        }
+        &.light-4 {
+        bottom: 0%;
+        right: 11%;
+        transform: translate(50%, 50%);
+        }
     }
 
 
@@ -22,9 +55,14 @@
         position: absolute;
         left: 0;
         right: 0;
+        top: 20%;
 
         .line-title{
-            color: white;
+            background: linear-gradient(0deg, rgba(88, 158, 138, 0.1) 19.81%, #589E8A 125.47%);
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             font-size: 190px;
             text-align: center;
             text-transform: uppercase;
@@ -35,6 +73,7 @@
     .bottom-part{
         display: flex;
         justify-content: space-between;
+        align-items: flex-end;
         margin-top: auto;
         width: 100%;
 
@@ -46,7 +85,13 @@
 
 
         .short-description{
+            text-transform: uppercase;
             font-size: 54px;
+            background: linear-gradient(263.84deg, #BFEFD2 0%, #F5FFF9 99.22%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
         }
     }
 }
