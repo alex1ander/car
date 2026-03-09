@@ -1,0 +1,73 @@
+@use "hero";
+@use "glass-button";
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/assets/fonts/helveticaneuecyr-light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/assets/fonts/HelveticaNeueCyr-roman.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/assets/fonts/helveticaneuecyr-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "HelveticaNeueCyr", sans-serif;
+    color: #ffffff;
+}
+
+main{
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.light-text{
+  font-weight: 300;
+}
+
+.regular-text{
+  font-weight: 400;
+}
+
+.medium-text{
+  font-weight: 500;
+}
+
+.container {
+    max-width: 1296px;
+    padding: 64px 0;
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex: 1;
+}
+
+.scroll-snap-section{
+    min-height: 100dvh;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column; /* если нужно вертикально */
+    overflow: hidden;
+}
+
+

@@ -1,0 +1,159 @@
+@charset "UTF-8";
+.hero-wrapper {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.hero-wrapper img {
+  position: absolute;
+  z-index: -1;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.hero-wrapper .line-titles-block {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.hero-wrapper .line-titles-block .line-title {
+  color: white;
+  font-size: 190px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.hero-wrapper .bottom-part {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  width: 100%;
+}
+.hero-wrapper .bottom-part .text-place {
+  max-width: 500px;
+  width: 100%;
+  text-wrap: balance;
+}
+.hero-wrapper .bottom-part .short-description {
+  font-size: 54px;
+}
+
+.glass-button {
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  font-size: 16px;
+  padding: 18px 50px;
+  border-radius: 100px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(33.13% 37.96% at 83.13% 0%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(50% 57.28% at 0% 100%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%), radial-gradient(85.94% 85.94% at 50% 100%, rgba(109, 196, 171, 0.5) 0%, rgba(109, 196, 171, 0) 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  overflow: visible; /* чтобы псевдоэлемент ::after был виден */
+  z-index: 1;
+}
+
+.glass-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 100px;
+  padding: 1px; /* толщина бордера */
+  background: radial-gradient(50% 219.64% at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.25) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Стекло позади кнопки */
+.glass-button::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  border-radius: 100px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), radial-gradient(33.13% 37.96% at 83.13% 0%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); /* мягкое свечение */
+  border: 1px solid rgba(255, 255, 255, 0.25); /* такая же обводка, но можно сделать градиентной */
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/assets/fonts/helveticaneuecyr-light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/assets/fonts/HelveticaNeueCyr-roman.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("/assets/fonts/helveticaneuecyr-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "HelveticaNeueCyr", sans-serif;
+  color: #ffffff;
+}
+
+main {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.light-text {
+  font-weight: 300;
+}
+
+.regular-text {
+  font-weight: 400;
+}
+
+.medium-text {
+  font-weight: 500;
+}
+
+.container {
+  max-width: 1296px;
+  padding: 64px 0;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.scroll-snap-section {
+  min-height: 100dvh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column; /* если нужно вертикально */
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=style.css.map */
