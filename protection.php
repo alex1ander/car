@@ -1,25 +1,25 @@
 <section class="scroll-snap-section">
-    <div class="our-servises-wrapper car-wrapper">
-
+    <div class="our-servises-wrapper protection-wrapper">   
+        <div class="bg-slider">
+            <div class="swiper contentSlider">
+                <div class="swiper-wrapper">
+                    <?php for($i = 1;$i<= 3;$i++ ): ?>
+                    <div class="swiper-slide">
+                        <div class="image-place">
+                            <img src="/assets/images/protektion.png" alt="">
+                        </div>
+                    </div>
+                    <?php endfor; ?> 
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="services-grid">
                 <div class="title-place">
                     <h2>НАШИ УСЛУГИ</h2>
                 </div>
-                <div class="slider-place light">
+                <div class="slider-place">
 
-
-                    <div class="swiper contentSlider carSlider">
-                        <div class="swiper-wrapper">
-                            <?php for($i = 1;$i<= 3;$i++ ): ?>
-                            <div class="swiper-slide">
-                                <div class="image-place">
-                                    <img src="/assets/images/car-<?= $i?>.png" alt="">
-                                </div>
-                            </div>
-                            <?php endfor; ?> 
-                        </div>
-                    </div>
 
                     
                 </div>
@@ -70,37 +70,6 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="services-table-wrapper">
-                        <table class="services-table additional-table">
-                            <tr>
-                                <td colspan="3"  class="scroll-cell"><span class="table-title">Варианты пленок</span></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="services-table-wrapper">
-                        <table class="services-table additional-table">
-                            <tr class="col-3">
-                                <td>
-                                    <div class="color-block hover-light">
-                                        <div class="glass-wrapper glass-color gloss"></div>
-                                        <span class="text">Прозрачный глянец</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="color-block hover-light">
-                                        <div class="glass-wrapper glass-color matte"></div>
-                                        <span class="text">Прозрачная матовая</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="color-block hover-light">
-                                        <div class="glass-wrapper glass-color any"></div>
-                                        <span class="text">Любой цвет любой финиш</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>
@@ -110,11 +79,11 @@
 
 <script>
 (function() {
-    const contentSlider = new Swiper('.car-wrapper .contentSlider', {
+    const contentSlider = new Swiper('.protection-wrapper .contentSlider', {
         loop: true,
         slidesPerView: 1,
         pagination: {
-            el: '.car-wrapper .swiper-glass-pagination',
+            el: '.protection-wrapper .swiper-glass-pagination',
             clickable: true,
             type: 'fraction',
             formatFractionCurrent: (n) => String(n).padStart(2, '0'),
@@ -122,7 +91,7 @@
         },
     });
 
-    const titleSlider = new Swiper('.car-wrapper .titleSlider', {
+    const titleSlider = new Swiper('.protection-wrapper .titleSlider', {
         loop: true,
         slidesPerView: 1,
     });

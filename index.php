@@ -13,6 +13,7 @@
     <main>
         <?php include 'hero.php'; ?>
         <?php include 'our-services.php'; ?>
+        <?php include 'protection.php'; ?>
     </main>
     <footer></footer>
 

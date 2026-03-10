@@ -64,7 +64,7 @@ main{
 
 .container {
     max-width: 1316px;
-    padding-top: 129px;
+    padding-top: 128px;
     padding-bottom: 64px;
     padding-left: 20px;
     padding-right: 20px;
@@ -75,7 +75,10 @@ main{
     flex: 1;
 
     @include mixins.mobile  {
-      padding: 20px!important;
+      padding-top: 104px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
     }
 }
 
