@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="button-place">
-                    <div class="glass-button-wrapper">
+                    <div class="glass-wrapper">
                         <button class="glass-button">Забронируй сейчас</button>
                     </div>
                 </div>

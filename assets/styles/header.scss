@@ -32,7 +32,7 @@ header{
         justify-content: center;
     }
 
-    .glass-button-wrapper{
+    .glass-wrapper{
         padding: 4px;
     }
 
@@ -49,7 +49,7 @@ header{
                 font-size: 12px;
                 font-weight: 500;
                 border-radius: 100px;
-
+                text-wrap: nowrap;
                 &:hover{
                     background: #F5FFF90D;
                     color: #71CDB3;
@@ -62,4 +62,81 @@ header{
             font-weight: 700;
         }
     }
+
+    .glass-burger-wrapper{
+        aspect-ratio: 1;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+
+
+        &.active{
+            .burger-block{
+                &.close{
+                     transform: translateY(40px);
+                }
+                &.open{
+                    transform: translateY(0px);
+                }
+            }
+        }
+        .burger-block{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 16px;
+            width: 16px;
+            gap: 4px;
+            aspect-ratio: 1;
+            border-radius: 2px;
+            transition: transform 0.4s ease-in-out;
+            &.close{
+                transform: translateY(0px);
+
+                span{
+                    height: 1px;
+                    width: 2px;
+                    background: #71CDB3;
+
+                    &:nth-child(1){
+                        width: 16px;
+                    }
+                    &:nth-child(2){ 
+                        width: 10px;
+                    }
+                    &:nth-child(3){
+                        width: 6px;
+                    }
+                }
+            }
+
+            &.open{
+                transform: translateY(-40px);
+                span{
+                    height: 1px;
+                    width: 2px;
+                    background: #71CDB3;
+
+                    &:nth-child(1){
+                        position: absolute;
+                        width: 16px;
+                        transform: rotate(45deg);
+                    }
+                    &:nth-child(2){ 
+                        position: absolute;
+                        width: 16px;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+
 }

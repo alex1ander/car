@@ -1,0 +1,45 @@
+@use "mixins";
+
+.titleSlider{
+    display: grid;
+    width: 100%;
+}
+
+
+.glass-pagination{
+    display: flex;
+    width: fit-content!important;
+    padding: 14px 16px;
+    color: #71CDB3;
+    font-weight: 500;
+
+    .swiper-glass-pagination{
+        display: flex;
+        gap: 8px;
+    }
+
+    .swiper-pagination-total{
+        color: #71CDB3;
+        font-weight: 500;
+    }
+
+    .swiper-pagination-current{
+        color: #ffffff;
+        font-weight: 500;
+    }
+}
+
+
+.carSlider{
+    height: 100%;
+
+    .image-place{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 100%;
+        }
+    }
+}

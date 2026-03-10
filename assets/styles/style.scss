@@ -1,6 +1,11 @@
 @use "header";
 @use "hero";
+@use "our-services";
 @use "glass-button";
+@use "sliders";
+@use "mixins";
+
+
 
 @font-face {
   font-family: "HelveticaNeueCyr";
@@ -34,6 +39,7 @@
     color: #ffffff;
 }
 
+
 a{
   text-decoration: none;
 }
@@ -57,13 +63,20 @@ main{
 }
 
 .container {
-    max-width: 1296px;
-    padding: 64px 0;
+    max-width: 1316px;
+    padding-top: 129px;
+    padding-bottom: 64px;
+    padding-left: 20px;
+    padding-right: 20px;
     width: 100%;
     margin: auto;
     height: 100%;
     display: flex;
     flex: 1;
+
+    @include mixins.mobile  {
+      padding: 20px!important;
+    }
 }
 
 .scroll-snap-section{
@@ -75,4 +88,14 @@ main{
     overflow: hidden;
 }
 
-
+.desktop-only {
+    @include mixins.mobile  {
+      display: none !important;
+    }
+}
+.mobile-only {
+  display: none !important;
+  @include mixins.mobile{
+    display: flex !important;
+  }
+}
