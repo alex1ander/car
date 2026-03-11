@@ -1,3 +1,5 @@
+<?php $slidsCount = 8; ?>
+
 <section class="scroll-snap-section">
     <div class="our-servises-wrapper car-wrapper">
 
@@ -11,7 +13,7 @@
 
                     <div class="swiper contentSlider carSlider">
                         <div class="swiper-wrapper">
-                            <?php for($i = 1;$i<= 3;$i++ ): ?>
+                            <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                             <div class="swiper-slide">
                                 <div class="image-place">
                                     <img src="/assets/images/car-<?= $i?>.png" alt="">
@@ -33,7 +35,7 @@
                 <div class="slider-title-place">
                     <div class="swiper titleSlider">
                         <div class="swiper-wrapper">
-                            <?php for($i = 1;$i<= 3;$i++ ): ?>
+                            <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                             <div class="swiper-slide">
                                 <div class="service-element-name">
                                     <h3 class="title">PPF</h3>

@@ -1,12 +1,14 @@
+<?php $slidsCount = 6; ?>
+
 <section class="scroll-snap-section">
     <div class="our-servises-wrapper protection-wrapper">   
         <div class="bg-slider">
             <div class="swiper contentSlider">
                 <div class="swiper-wrapper">
-                    <?php for($i = 1;$i<= 3;$i++ ): ?>
+                    <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                     <div class="swiper-slide">
                         <div class="image-place">
-                            <img src="/assets/images/protektion.png" alt="">
+                            <img class="full-cover" src="/assets/images/protektion.png" alt="">
                         </div>
                     </div>
                     <?php endfor; ?> 
@@ -33,7 +35,7 @@
                 <div class="slider-title-place">
                     <div class="swiper titleSlider">
                         <div class="swiper-wrapper">
-                            <?php for($i = 1;$i<= 3;$i++ ): ?>
+                            <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                             <div class="swiper-slide">
                                 <div class="service-element-name">
                                     <h3 class="title">PPF</h3>
@@ -45,31 +47,128 @@
                     </div>
                 </div>
                 <div class="service-menu-place">
-                    <div class="services-table-wrapper">
+                    <div class="services-table-wrapper desktop-only">
                         <table class="services-table">
                             <tr>
-                                <td colspan="2"><span class="table-title">Бренды мы используем</span></td>
+                                <td colspan="2"><span class="table-title">Защита от</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="services-table-wrapper desktop-only">
+                        <table class="services-table additional-table shield-service-table">
+                              <tr class="col-2">
+                                <td>
+                                    <div class="schield-block hover-light text-information-wrapper">
+                                        <svg height="24" width="24" class="icon">
+                                            <use href="#rock"></use>
+                                        </svg>
+                                        <p class="text">Камни</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schield-block hover-light text-information-wrapper">
+                                        <svg height="24" width="24" class="icon">
+                                            <use href="#scratch"></use>
+                                        </svg>
+                                        <p class="text">Царапины на парковке</p>
+                                    </div>
+                                </td>
+                            </tr> 
+                            <tr class="col-2">
+                                <td>
+                                    <div class="schield-block hover-light text-information-wrapper">
+                                        <svg height="24" width="24" class="icon">
+                                            <use href="#rear"></use>
+                                        </svg>
+                                        <p class="text">Бампер о бордюр</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schield-block hover-light text-information-wrapper">
+                                        <svg height="24" width="24" class="icon">
+                                            <use href="#smoke"></use>
+                                        </svg>
+                                        <p class="text">Химия от дорог</p>
+                                    </div>
+                                </td>
                             </tr>
                             <tr class="col-2">
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/xpel.svg"></object></div></td>
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/suntek.svg"></object></div></td>
-                            </tr>
-                            <tr>
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/stek.svg"></object></div></td>
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/carlas.svg"></object></div></td>
-                            </tr>
-                            <tr class="col-2">
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/p.svg"></object></div></td>
-                                <td><div class="brand-block hover-light text-information-wrapper">
-                                        <div class="text-information">   
-                                            <object type="image/svg+xml" data="/assets/images/shield.svg"></object>
-                                            <p>Вы можете привезти Ваш материал, но гарантия не распространяется</p>
-                                        </div> 
+                                <td>
+                                    <div class="schield-block hover-light text-information-wrapper">
+                                        <svg height="24" width="24" class="icon">
+                                            <use href="#beetle"></use>
+                                        </svg>
+                                        <p class="text">Птичий помет и жуки</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="schield-block hover-light text-information-wrapper">
+                                        <svg height="24" width="24" class="icon">
+                                            <use href="#uv"></use>
+                                        </svg>
+                                        <p class="text">UV защита</p>
                                     </div>
                                 </td>
                             </tr>
                         </table>
                     </div>
+                    <div class="services-table-wrapper mobile-only">
+                        <table class="services-table">
+                            <tr>
+                                <td>
+                                    <span class="table-title">Защита от</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+
+                    <div class="services-table-wrapper mobile-only">
+  <div class="shield-service-slider swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="schield-block hover-light text-information-wrapper">
+          <svg height="24" width="24" class="icon"><use href="#rock"></use></svg>
+          <p class="text">Камни</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="schield-block hover-light text-information-wrapper">
+          <svg height="24" width="24" class="icon"><use href="#scratch"></use></svg>
+          <p class="text">Царапины на парковке</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="schield-block hover-light text-information-wrapper">
+          <svg height="24" width="24" class="icon"><use href="#rear"></use></svg>
+          <p class="text">Бампер о бордюр</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="schield-block hover-light text-information-wrapper">
+          <svg height="24" width="24" class="icon"><use href="#smoke"></use></svg>
+          <p class="text">Химия от дорог</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="schield-block hover-light text-information-wrapper">
+          <svg height="24" width="24" class="icon"><use href="#beetle"></use></svg>
+          <p class="text">Птичий помет и жуки</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="schield-block hover-light text-information-wrapper">
+          <svg height="24" width="24" class="icon"><use href="#uv"></use></svg>
+          <p class="text">UV защита</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+                   
                 </div>
             </div>
         </div>
@@ -87,7 +186,7 @@
             clickable: true,
             type: 'fraction',
             formatFractionCurrent: (n) => String(n).padStart(2, '0'),
-            formatFractionTotal:   (n) => String(n).padStart(2, '0'),
+            formatFractionTotal: (n) => String(n).padStart(2, '0'),
         },
     });
 
@@ -98,5 +197,30 @@
 
     contentSlider.controller.control = titleSlider;
     titleSlider.controller.control = contentSlider;
+
+    // Mobile слайдер для карточек
+    const mobileSlider = new Swiper('.shield-service-slider', {
+        slidesPerView: 1,
+        loop: true,
+    });
+
+    // Функция обновления active
+    function updateActiveBlock(slideIndex) {
+        const allBlocks = document.querySelectorAll('.shield-service-table .schield-block, .shield-service-slider .schield-block');
+        const total = 6; // или можно allBlocks.length / 2, если уверены что desktop + mobile одинаково
+        const realIndex = slideIndex % total;
+
+        allBlocks.forEach((block, i) => {
+            block.classList.toggle('active', i % total === realIndex);
+        });
+
+        // Переключаем мобильный слайдер на нужный элемент
+        mobileSlider.slideToLoop(realIndex, 0);
+    }
+
+    contentSlider.on('slideChange', () => updateActiveBlock(contentSlider.realIndex));
+
+    // Инициализация
+    updateActiveBlock(contentSlider.realIndex);
 })();
 </script>

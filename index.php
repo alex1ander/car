@@ -14,8 +14,11 @@
         <?php include 'hero.php'; ?>
         <?php include 'our-services.php'; ?>
         <?php include 'protection.php'; ?>
+        <?php include 'calculation.php'; ?>
     </main>
-    <footer></footer>
+    <footer>
+        <?php include 'assets/images/sprite.svg'; ?>
+    </footer>
 
 </body>
 </html>
