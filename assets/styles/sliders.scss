@@ -5,7 +5,9 @@
     width: 100%;
 }
 
-
+.swiper-slide{
+    overflow: hidden;
+}
 .glass-pagination{
     display: flex;
     width: fit-content!important;
@@ -43,10 +45,17 @@
         &.side-image{
             align-items: flex-end;
             justify-content: center;
-            img{
+            .car-image{
                 &.full-cover{
-                    // width: 80%;
-                    // height: 80%;
+                    width: auto;
+                    height: 80%;
+                    position: relative;
+                    left: -20%;
+                    @include mixins.mobile   {
+                        position: static;
+                        left: 0;
+                        height: 50%;
+                    }
                 }
 
             }

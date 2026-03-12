@@ -1,6 +1,6 @@
 <?php $slidsCount = 6; ?>
 
-<section class="scroll-snap-section">
+<section class="scroll-snap-section animate">
     <div class="our-servises-wrapper calculation-wrapper">   
         <div class="bg-slider">
             <div class="swiper contentSlider">
@@ -8,7 +8,7 @@
                     <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                     <div class="swiper-slide">
                         <div class="image-place side-image">
-                            <img class="full-cover" src="/assets/images/bg-car.png" alt="">
+                            <img class="full-cover car-image" src="./assets/images/bg-car.png" alt="">
                         </div>
                     </div>
                     <?php endfor; ?> 
@@ -54,7 +54,7 @@
 
 
                 <div class="logo-place">
-                    <object type="image/svg+xml" data="/assets/images/LOGO.svg"></object>
+                    <object type="image/svg+xml" data="./assets/images/LOGO.svg"></object>
                 </div>
 
 
@@ -91,4 +91,20 @@
     contentSlider.controller.control = titleSlider;
     titleSlider.controller.control = contentSlider;
 })();
+</script>
+
+<script>
+const section = document.querySelector('.scroll-snap-section.animate');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      section.classList.add('active');
+    }
+  });
+}, {
+  threshold: 0.6
+});
+
+observer.observe(section);
 </script>

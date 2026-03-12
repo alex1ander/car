@@ -1,6 +1,6 @@
 <section class="scroll-snap-section">
     <div class="hero-wrapper">
-        <img src="/assets/images/hero-bg.jpg" alt="" class="bg-image">
+        <img src="./assets/images/hero-bg.jpg" alt="" class="bg-image">
 
         <div class="light light-1"></div>
         <div class="light light-2"></div>

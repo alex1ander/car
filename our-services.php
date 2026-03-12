@@ -16,7 +16,7 @@
                             <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                             <div class="swiper-slide">
                                 <div class="image-place">
-                                    <img src="/assets/images/car-<?= $i?>.png" alt="">
+                                    <img src="./assets/images/car-<?= $i?>.png" alt="">
                                 </div>
                             </div>
                             <?php endfor; ?> 
@@ -53,18 +53,18 @@
                                 <td colspan="2"><span class="table-title">Бренды мы используем</span></td>
                             </tr>
                             <tr class="col-2">
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/xpel.svg"></object></div></td>
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/suntek.svg"></object></div></td>
+                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="./assets/images/xpel.svg"></object></div></td>
+                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="./assets/images/suntek.svg"></object></div></td>
                             </tr>
                             <tr>
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/stek.svg"></object></div></td>
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/carlas.svg"></object></div></td>
+                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="./assets/images/stek.svg"></object></div></td>
+                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="./assets/images/carlas.svg"></object></div></td>
                             </tr>
                             <tr class="col-2">
-                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="/assets/images/p.svg"></object></div></td>
+                                <td><div class="brand-block hover-light"><object type="image/svg+xml" data="./assets/images/p.svg"></object></div></td>
                                 <td><div class="brand-block hover-light text-information-wrapper">
                                         <div class="text-information">   
-                                            <object type="image/svg+xml" data="/assets/images/shield.svg"></object>
+                                            <object type="image/svg+xml" data="./assets/images/shield.svg"></object>
                                             <p>Вы можете привезти Ваш материал, но гарантия не распространяется</p>
                                         </div> 
                                     </div>

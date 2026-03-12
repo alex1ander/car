@@ -546,54 +546,50 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   border: 1px solid rgba(82, 97, 105, 0.2509803922);
   border-top: none;
 }
-
-.glass-color {
+.our-servises-wrapper .glass-color {
   aspect-ratio: 1;
   width: 40px;
   height: 40px;
 }
-.glass-color.gloss {
+.our-servises-wrapper .glass-color.gloss {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), radial-gradient(60% 60% at 50% 100%, rgba(109, 196, 171, 0.6) 0%, rgba(109, 196, 171, 0) 100%);
 }
-.glass-color.matte {
+.our-servises-wrapper .glass-color.matte {
   background: rgba(255, 255, 255, 0.4);
 }
-.glass-color.any {
+.our-servises-wrapper .glass-color.any {
   background: linear-gradient(0deg, rgba(127, 240, 209, 0.4), rgba(127, 240, 209, 0.4)), radial-gradient(60% 60% at 50% 100%, #6DC4AB 0%, rgba(109, 196, 171, 0) 100%);
 }
-
 @media (max-width: 768px) {
-  .text-place {
+  .our-servises-wrapper .text-place {
     align-self: end;
   }
 }
-.text-place .text {
+.our-servises-wrapper .text-place .text {
   text-wrap: balance;
   font-size: 28px;
 }
 @media (max-width: 768px) {
-  .text-place .text {
+  .our-servises-wrapper .text-place .text {
     font-size: 20px;
     text-align: center;
   }
 }
-.text-place .text span {
+.our-servises-wrapper .text-place .text span {
   color: #526169;
 }
-
-.logo-place {
+.our-servises-wrapper .logo-place {
   filter: grayscale(1) brightness(0.9);
   display: flex;
   justify-content: flex-end;
 }
 @media (max-width: 768px) {
-  .logo-place {
+  .our-servises-wrapper .logo-place {
     justify-content: center;
   }
 }
-
 @media (max-width: 768px) {
-  .button-place {
+  .our-servises-wrapper .button-place {
     align-self: end;
     align-items: center;
     justify-content: center;
@@ -654,6 +650,10 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   width: 100%;
 }
 
+.swiper-slide {
+  overflow: hidden;
+}
+
 .glass-pagination {
   display: flex;
   width: fit-content !important;
@@ -686,6 +686,19 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 .contentSlider .image-place.side-image {
   align-items: flex-end;
   justify-content: center;
+}
+.contentSlider .image-place.side-image .car-image.full-cover {
+  width: auto;
+  height: 80%;
+  position: relative;
+  left: -20%;
+}
+@media (max-width: 768px) {
+  .contentSlider .image-place.side-image .car-image.full-cover {
+    position: static;
+    left: 0;
+    height: 50%;
+  }
 }
 .contentSlider .image-place img {
   width: 100%;
@@ -794,6 +807,15 @@ main {
   .mobile-only {
     display: flex !important;
   }
+}
+
+.scroll-snap-section .side-image {
+  transform: translateY(100%);
+  transition: transform 1.8s ease-in-out;
+}
+
+.scroll-snap-section.active .side-image {
+  transform: translateY(0);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,7 +1,7 @@
  <header>
     <div class="container">
         <div class="logo-place">
-            <object type="image/svg+xml" data="/assets/images/LOGO.svg"></object>
+            <object type="image/svg+xml" data="./assets/images/LOGO.svg"></object>
         </div>
         <div class="glass-menu glass-wrapper desktop-only">
             <ul class="header-menu">

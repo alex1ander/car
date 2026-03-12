@@ -8,7 +8,7 @@
                     <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                     <div class="swiper-slide">
                         <div class="image-place">
-                            <img class="full-cover" src="/assets/images/protektion.png" alt="">
+                            <img class="full-cover" src="./assets/images/protektion.png" alt="">
                         </div>
                     </div>
                     <?php endfor; ?> 
