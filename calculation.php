@@ -20,11 +20,6 @@
                 <div class="title-place">
                     <h2>НАШИ УСЛУГИ</h2>
                 </div>
-                <div class="slider-place">
-
-
-                    
-                </div>
                 <div class="slider-pagination-place">
                     <div class="glass-wrapper glass-pagination">
                         <div class="swiper-glass-pagination"></div>

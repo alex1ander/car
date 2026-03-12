@@ -276,7 +276,7 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 @media (max-width: 768px) {
   .our-servises-wrapper .services-grid.calculation-preset {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 1fr 1fr 2fr;
+    grid-template-rows: auto auto 1fr 1fr auto;
     grid-template-areas: "title-place slider-pagination-place" "slider-title-place slider-title-place" "text-place text-place" "logo-place logo-place" "button-place button-place";
   }
 }
@@ -560,11 +560,6 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 .our-servises-wrapper .glass-color.any {
   background: linear-gradient(0deg, rgba(127, 240, 209, 0.4), rgba(127, 240, 209, 0.4)), radial-gradient(60% 60% at 50% 100%, #6DC4AB 0%, rgba(109, 196, 171, 0) 100%);
 }
-@media (max-width: 768px) {
-  .our-servises-wrapper .text-place {
-    align-self: end;
-  }
-}
 .our-servises-wrapper .text-place .text {
   text-wrap: balance;
   font-size: 28px;
@@ -586,6 +581,7 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 @media (max-width: 768px) {
   .our-servises-wrapper .logo-place {
     justify-content: center;
+    align-self: start;
   }
 }
 @media (max-width: 768px) {

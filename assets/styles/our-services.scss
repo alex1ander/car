@@ -65,7 +65,7 @@
 
         @include mixins.mobile{
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto 1fr 1fr 2fr;
+            grid-template-rows: auto auto 1fr 1fr auto;
             grid-template-areas:
                 "title-place slider-pagination-place"
                 "slider-title-place slider-title-place"
@@ -404,11 +404,6 @@
 }
 
     .text-place{
-
-        @include mixins.mobile {
-            align-self: end;    
-        }
-
         .text{
             text-wrap: balance;
             font-size: 28px;
@@ -432,6 +427,7 @@
 
         @include mixins.mobile {
             justify-content: center;
+            align-self: start;
         }
     }
 
