@@ -51,16 +51,41 @@
 
 
     &.calculation-preset{
+        grid-template-columns: 8fr 3fr 3fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "title-place title-place title-place"
+            ". slider-title-place slider-title-place"
+            "slider-place text-place text-place"
+            "slider-pagination-place button-place logo-place";
+        align-items: center;
+
+
+
         @include mixins.mobile{
-            grid-template-rows: auto auto auto 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto 1fr 1fr 2fr;
+            grid-template-areas:
+                "title-place slider-pagination-place"
+                "slider-title-place slider-title-place"
+                "text-place text-place"
+                "logo-place logo-place"
+                "button-place button-place";
         }
     }
-}
+
 
     .service-menu-place      { grid-area: service-menu-place; }
     .title-place             { grid-area: title-place; }
     .slider-title-place      { grid-area: slider-title-place; }
     .slider-pagination-place { grid-area: slider-pagination-place; }
+    .text-place { grid-area: text-place; }
+    .button-place { grid-area: button-place; }
+    .logo-place { grid-area: logo-place; }
+    
+}
+
 
 
     .slider-pagination-place{
@@ -380,44 +405,12 @@
     }
 }
 
-
-
-.calculation-grid {
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 0px 0px;
-    grid-template-areas:
-        "text-place text-place"
-        "button-place logo-place";
-    height: 100%;
-    justify-items: stretch;
-    align-content: space-between;
-    align-items: center;
-
-
-    @include mixins.mobile {
-        grid-template-columns: 1fr; 
-        grid-template-rows: 1fr 1fr 1fr; 
-        grid-template-areas:
-            "text-place"
-            "logo-place"
-            "button-place";
-
-        justify-items: center;   
-    }
-
-
-
-    .text-place { grid-area: text-place; }
-    .button-place { grid-area: button-place; }
-    .logo-place { grid-area: logo-place; }
-    
-
-
     .text-place{
-        margin-top: 60px;
+
+        @include mixins.mobile {
+            align-self: end;    
+        }
+
         .text{
             text-wrap: balance;
             font-size: 28px;
@@ -440,13 +433,15 @@
         justify-content: flex-end;
 
         @include mixins.mobile {
-            align-self: start;
+            justify-content: center;
         }
     }
 
     .button-place {
         @include mixins.mobile {
             align-self: end;
+            align-items: center;
+            justify-content: center;
+            display: flex;
         }
     }
-}

@@ -46,24 +46,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="service-menu-place">
-
-                    <div class="calculation-grid">
-                        <div class="text-place">
-                            <p class="text">Ни единой царапины. PPF — это <span>больше чем просто пленка, это</span> максимальная защита <span>вашей</span> инвестиции <span>и вашего</span> спокойствия</p>
-                        </div>
 
 
-                        <div class="logo-place">
-                            <object type="image/svg+xml" data="/assets/images/LOGO.svg"></object>
-                        </div>
+                <div class="text-place">
+                    <p class="text">Ни единой царапины. PPF — это <span>больше чем просто пленка, это</span> максимальная защита <span>вашей</span> инвестиции <span>и вашего</span> спокойствия</p>
+                </div>
 
 
-                        <div class="button-place">
-                            <div class="glass-wrapper">
-                                <button class="glass-button">Получить расчет</button>
-                            </div>
-                        </div>
+                <div class="logo-place">
+                    <object type="image/svg+xml" data="/assets/images/LOGO.svg"></object>
+                </div>
+
+
+                <div class="button-place">
+                    <div class="glass-wrapper">
+                        <button class="glass-button">Получить расчет</button>
                     </div>
                 </div>
             </div>
