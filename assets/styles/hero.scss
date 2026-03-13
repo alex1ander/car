@@ -9,44 +9,55 @@
     flex-direction: column;
 
     .bg-image{
-        background: #141B19;
         position: absolute;
         z-index: -1;
         object-fit: cover;
         height: 100%;
         width: 100%;
-        opacity: 0.4;
+        opacity: 0.2;
     }
 
     .light {
         position: absolute;
         aspect-ratio: 1;
-        width: 13%;
+        width: 10%;
         border-radius: 50%;
         background: #81D6BE;
         filter: blur(60px);
         pointer-events: none;
 
+
+        &::after { 
+            content: '';
+            position: absolute;
+            inset: -50%; // делает элемент намного больше
+            border-radius: 50%;
+            background: #CAFFF0;
+            filter: blur(120px);
+            opacity: .6;
+        }
         // смещение через transform, чтобы половина была скрыта
         &.light-1 {
-        top: 0%;
-        left: 23%;
-        transform: translate(-50%, -50%);
+            top: 0%;
+            left: 23%;
+            transform: translate(-50%, -50%);
         }
         &.light-2 {
-        top: 0%;
-        right: 24%;
-        transform: translate(50%, -50%);
+            top: 0%;
+            right: 24%;
+            transform: translate(50%, -50%);
         }
         &.light-3 {
-        bottom: 15%;
-        left: 0%;
-        transform: translate(-50%, 50%);
+            width: 8%;
+            bottom: 15%;
+            left: 0%;
+            transform: translate(-50%, 50%);
         }
         &.light-4 {
-        bottom: 0%;
-        right: 11%;
-        transform: translate(50%, 50%);
+            width: 9%;
+            bottom: 0%;
+            right: 11%;
+            transform: translate(50%, 50%);
         }
     }
 
