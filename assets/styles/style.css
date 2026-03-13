@@ -56,7 +56,7 @@ header .header-menu li a:hover {
 header .header-menu .phone-number {
   font-size: 14px;
   font-weight: 700;
-  padding: 12px;
+  padding: 12px 17px;
 }
 header .glass-burger-wrapper {
   aspect-ratio: 1;
@@ -243,7 +243,6 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   flex: 1;
   height: 100%;
   width: 100%;
-  background: #141B19;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -719,21 +718,21 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 
 @font-face {
   font-family: "HelveticaNeueCyr";
-  src: url("/assets/fonts/helveticaneuecyr-light.woff2") format("woff2");
+  src: url("./assets/fonts/helveticaneuecyr-light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "HelveticaNeueCyr";
-  src: url("/assets/fonts/HelveticaNeueCyr-roman.woff2") format("woff2");
+  src: url("./assets/fonts/HelveticaNeueCyr-roman.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "HelveticaNeueCyr";
-  src: url("/assets/fonts/helveticaneuecyr-medium.woff2") format("woff2");
+  src: url("./assets/fonts/helveticaneuecyr-medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
