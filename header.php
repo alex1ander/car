@@ -14,9 +14,9 @@
             </ul>
         </div>
         <div class="glass-contact glass-wrapper desktop-only">
-            <ul class="header-menu phone-number">
+            <ul class="header-menu">
                 <li>
-                    <a href="#">+1 080 420 24 21</a>
+                    <a href="#" class="phone-number">+1 080 420 24 21</a>
                 </li>
             </ul>
         </div>

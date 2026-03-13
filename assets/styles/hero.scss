@@ -15,15 +15,16 @@
         object-fit: cover;
         height: 100%;
         width: 100%;
+        opacity: 0.4;
     }
 
     .light {
         position: absolute;
-        aspect-ratio: 1;                // всегда квадрат
-        width: 20%;                      // базовый размер относительно контейнера
-        border-radius: 50%;             // круг
-        background-color: rgba(81, 174, 148, 1);
-        filter: blur(120px);
+        aspect-ratio: 1;
+        width: 13%;
+        border-radius: 50%;
+        background: #81D6BE;
+        filter: blur(60px);
         pointer-events: none;
 
         // смещение через transform, чтобы половина была скрыта
