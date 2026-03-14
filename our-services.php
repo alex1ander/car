@@ -83,19 +83,19 @@
                         <table class="services-table additional-table">
                             <tr class="col-3">
                                 <td>
-                                    <div class="color-block hover-light">
+                                    <div class="color-block hover-light after-light">
                                         <div class="glass-wrapper glass-color gloss"></div>
                                         <span class="text">Прозрачный глянец</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="color-block hover-light">
+                                    <div class="color-block hover-light after-light">
                                         <div class="glass-wrapper glass-color matte"></div>
                                         <span class="text">Прозрачная матовая</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="color-block hover-light">
+                                    <div class="color-block hover-light after-light">
                                         <div class="glass-wrapper glass-color any"></div>
                                         <span class="text">Любой цвет любой финиш</span>
                                     </div>
