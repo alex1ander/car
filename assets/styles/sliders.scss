@@ -42,26 +42,8 @@
         justify-content: center;
 
 
-        &.side-image{
-            align-items: flex-end;
-            justify-content: center;
-            .car-image{
-                &.full-cover{
-                    width: auto;
-                    height: 80%;
-                    position: relative;
-                    left: -20%;
-                    @include mixins.mobile   {
-                        position: static;
-                        left: 0;
-                        height: 50%;
-                    }
-                }
 
-            }
-        }
-
-        img{
+        img,video{
             width: 100%;
 
             &.full-cover{
@@ -70,5 +52,24 @@
                 object-fit: cover;
             }
         }
+    }
+}
+
+.side-image{
+    align-items: flex-end;
+    justify-content: center;
+    .car-image{
+        &.full-cover{
+            width: auto;
+            height: 80%;
+            position: relative;
+            left: -20%;
+            @include mixins.mobile   {
+                position: static;
+                left: 0;
+                height: 50%;
+            }
+        }
+
     }
 }

@@ -515,24 +515,30 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
     fill: #ffffff !important;
   }
 }
-.our-servises-wrapper .schield-block:hover svg *, .our-servises-wrapper .schield-block.active svg * {
+.our-servises-wrapper .schield-block.active svg * {
   fill: #71CDB3;
 }
-.our-servises-wrapper .hover-light {
+.our-servises-wrapper .schield-block.active span {
+  color: #ffffff;
+}
+.our-servises-wrapper .schield-block.active::after {
+  transform: translate(0, 50%);
+}
+.our-servises-wrapper .after-light {
   overflow: hidden;
   position: relative;
 }
-.our-servises-wrapper .hover-light span {
+.our-servises-wrapper .after-light span {
   color: #526169;
   transition: color 0.4s ease-in-out;
 }
-.our-servises-wrapper .hover-light:hover span, .our-servises-wrapper .hover-light.active span {
+.our-servises-wrapper .after-light.hover-light:hover span {
   color: #ffffff;
 }
-.our-servises-wrapper .hover-light:hover::after, .our-servises-wrapper .hover-light.active::after {
+.our-servises-wrapper .after-light.hover-light:hover::after {
   transform: translate(0, 50%);
 }
-.our-servises-wrapper .hover-light::after {
+.our-servises-wrapper .after-light::after {
   content: "";
   position: absolute;
   aspect-ratio: 1;
@@ -608,7 +614,7 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   display: inline-block;
   border-radius: 100px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.0117647059);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(32px);
   position: relative;
 }
@@ -618,7 +624,7 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   inset: 0;
   padding: 1px; /* толщина бордера */
   border-radius: inherit;
-  background: linear-gradient(350deg, rgba(81, 174, 148, 0.253) 0%, rgba(81, 174, 148, 0.24) 20%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.322) 100%);
+  background: linear-gradient(350deg, rgba(81, 174, 148, 0.164) 0%, rgba(106, 177, 157, 0.199) 20%, rgba(66, 66, 66, 0.37) 60%, rgba(255, 255, 255, 0.322) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -690,30 +696,31 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   align-items: center;
   justify-content: center;
 }
-.contentSlider .image-place.side-image {
+.contentSlider .image-place img, .contentSlider .image-place video {
+  width: 100%;
+}
+.contentSlider .image-place img.full-cover, .contentSlider .image-place video.full-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.side-image {
   align-items: flex-end;
   justify-content: center;
 }
-.contentSlider .image-place.side-image .car-image.full-cover {
+.side-image .car-image.full-cover {
   width: auto;
   height: 80%;
   position: relative;
   left: -20%;
 }
 @media (max-width: 768px) {
-  .contentSlider .image-place.side-image .car-image.full-cover {
+  .side-image .car-image.full-cover {
     position: static;
     left: 0;
     height: 50%;
   }
-}
-.contentSlider .image-place img {
-  width: 100%;
-}
-.contentSlider .image-place img.full-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 @font-face {

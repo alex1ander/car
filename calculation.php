@@ -1,17 +1,13 @@
-<?php $slidsCount = 6; ?>
-
 <section class="scroll-snap-section animate">
     <div class="our-servises-wrapper calculation-wrapper">   
         <div class="bg-slider">
             <div class="swiper contentSlider">
                 <div class="swiper-wrapper">
-                    <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                     <div class="swiper-slide">
                         <div class="image-place side-image">
                             <img class="full-cover car-image" src="./assets/images/bg-car.png" alt="">
                         </div>
                     </div>
-                    <?php endfor; ?> 
                 </div>
             </div>
         </div>
@@ -30,14 +26,12 @@
                 <div class="slider-title-place">
                     <div class="swiper titleSlider">
                         <div class="swiper-wrapper">
-                            <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                             <div class="swiper-slide">
                                 <div class="service-element-name">
                                     <h3 class="title">PPF</h3>
                                     <div class="description">Paint Protection Film</div>
                                 </div>
                              </div>
-                            <?php endfor; ?> 
                         </div>
                     </div>
                 </div>
@@ -64,29 +58,6 @@
     </div>
 </section>
 
-<script>
-(function() {
-    const contentSlider = new Swiper('.calculation-wrapper .contentSlider', {
-        loop: true,
-        slidesPerView: 1,
-        pagination: {
-            el: '.calculation-wrapper .swiper-glass-pagination',
-            clickable: true,
-            type: 'fraction',
-            formatFractionCurrent: (n) => String(n).padStart(2, '0'),
-            formatFractionTotal:   (n) => String(n).padStart(2, '0'),
-        },
-    });
-
-    const titleSlider = new Swiper('.calculation-wrapper .titleSlider', {
-        loop: true,
-        slidesPerView: 1,
-    });
-
-    contentSlider.controller.control = titleSlider;
-    titleSlider.controller.control = contentSlider;
-})();
-</script>
 
 <script>
 const section = document.querySelector('.scroll-snap-section.animate');

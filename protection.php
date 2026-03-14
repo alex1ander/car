@@ -1,20 +1,66 @@
-<?php $slidsCount = 6; ?>
-
 <section class="scroll-snap-section">
     <div class="our-servises-wrapper protection-wrapper">   
+
+
+
         <div class="bg-slider">
-            <div class="swiper contentSlider">
-                <div class="swiper-wrapper">
-                    <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
-                    <div class="swiper-slide">
-                        <div class="image-place">
-                            <img class="full-cover" src="./assets/images/protektion.png" alt="">
-                        </div>
-                    </div>
-                    <?php endfor; ?> 
-                </div>
-            </div>
+        <div class="swiper contentSlider">
+        <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+        <div class="image-place">
+        <video class="full-cover slide-video" muted playsinline preload="none">
+        <source data-src="./assets/video/rocks.mp4" type="video/mp4">
+        </video>
         </div>
+        </div>
+
+        <div class="swiper-slide">
+        <div class="image-place">
+        <video class="full-cover slide-video" muted playsinline preload="none">
+        <source data-src="./assets/video/parking.mp4" type="video/mp4">
+        </video>
+        </div>
+        </div>
+
+        <div class="swiper-slide">
+        <div class="image-place">
+        <video class="full-cover slide-video" muted playsinline preload="none">
+        <source data-src="./assets/video/bumber.mp4" type="video/mp4">
+        </video>
+        </div>
+        </div>
+
+        <div class="swiper-slide">
+        <div class="image-place">
+        <video class="full-cover slide-video" muted playsinline preload="none">
+        <source data-src="./assets/video/chimical.mp4" type="video/mp4">
+        </video>
+        </div>
+        </div>
+
+        <div class="swiper-slide">
+        <div class="image-place">
+        <video class="full-cover slide-video" muted playsinline preload="none">
+        <source data-src="./assets/video/beetle.mp4" type="video/mp4">
+        </video>
+        </div>
+        </div>
+
+        <div class="swiper-slide">
+        <div class="image-place">
+        <video class="full-cover slide-video" muted playsinline preload="none">
+        <source data-src="./assets/video/uv.mp4" type="video/mp4">
+        </video>
+        </div>
+        </div>
+
+        </div>
+        </div>
+        </div>
+
+
+
         <div class="container">
             <div class="services-grid">
                 <div class="title-place">
@@ -35,14 +81,12 @@
                 <div class="slider-title-place">
                     <div class="swiper titleSlider">
                         <div class="swiper-wrapper">
-                            <?php for($i = 1;$i<= $slidsCount;$i++ ): ?>
                             <div class="swiper-slide">
                                 <div class="service-element-name">
                                     <h3 class="title">PPF</h3>
                                     <div class="description">Paint Protection Film</div>
                                 </div>
                              </div>
-                            <?php endfor; ?> 
                         </div>
                     </div>
                 </div>
@@ -58,7 +102,7 @@
                         <table class="services-table additional-table shield-service-table">
                               <tr class="col-2">
                                 <td>
-                                    <div class="schield-block hover-light text-information-wrapper">
+                                    <div class="schield-block after-light text-information-wrapper">
                                         <svg height="24" width="24" class="icon">
                                             <use href="#rock"></use>
                                         </svg>
@@ -66,7 +110,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="schield-block hover-light text-information-wrapper">
+                                    <div class="schield-block after-light text-information-wrapper">
                                         <svg height="24" width="24" class="icon">
                                             <use href="#scratch"></use>
                                         </svg>
@@ -76,7 +120,7 @@
                             </tr> 
                             <tr class="col-2">
                                 <td>
-                                    <div class="schield-block hover-light text-information-wrapper">
+                                    <div class="schield-block after-light text-information-wrapper">
                                         <svg height="24" width="24" class="icon">
                                             <use href="#rear"></use>
                                         </svg>
@@ -84,7 +128,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="schield-block hover-light text-information-wrapper">
+                                    <div class="schield-block after-light text-information-wrapper">
                                         <svg height="24" width="24" class="icon">
                                             <use href="#smoke"></use>
                                         </svg>
@@ -94,7 +138,7 @@
                             </tr>
                             <tr class="col-2">
                                 <td>
-                                    <div class="schield-block hover-light text-information-wrapper">
+                                    <div class="schield-block after-light text-information-wrapper">
                                         <svg height="24" width="24" class="icon">
                                             <use href="#beetle"></use>
                                         </svg>
@@ -102,7 +146,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="schield-block hover-light text-information-wrapper">
+                                    <div class="schield-block after-light text-information-wrapper">
                                         <svg height="24" width="24" class="icon">
                                             <use href="#uv"></use>
                                         </svg>
@@ -128,37 +172,37 @@
   <div class="shield-service-slider swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <div class="schield-block hover-light text-information-wrapper">
+        <div class="schield-block after-light text-information-wrapper">
           <svg height="24" width="24" class="icon"><use href="#rock"></use></svg>
           <p class="text">Камни</p>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="schield-block hover-light text-information-wrapper">
+        <div class="schield-block after-light text-information-wrapper">
           <svg height="24" width="24" class="icon"><use href="#scratch"></use></svg>
           <p class="text">Царапины на парковке</p>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="schield-block hover-light text-information-wrapper">
+        <div class="schield-block after-light text-information-wrapper">
           <svg height="24" width="24" class="icon"><use href="#rear"></use></svg>
           <p class="text">Бампер о бордюр</p>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="schield-block hover-light text-information-wrapper">
+        <div class="schield-block after-light text-information-wrapper">
           <svg height="24" width="24" class="icon"><use href="#smoke"></use></svg>
           <p class="text">Химия от дорог</p>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="schield-block hover-light text-information-wrapper">
+        <div class="schield-block after-light text-information-wrapper">
           <svg height="24" width="24" class="icon"><use href="#beetle"></use></svg>
           <p class="text">Птичий помет и жуки</p>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="schield-block hover-light text-information-wrapper">
+        <div class="schield-block after-light text-information-wrapper">
           <svg height="24" width="24" class="icon"><use href="#uv"></use></svg>
           <p class="text">UV защита</p>
         </div>
@@ -177,50 +221,140 @@
 </section>
 
 <script>
-(function() {
-    const contentSlider = new Swiper('.protection-wrapper .contentSlider', {
-        loop: true,
-        slidesPerView: 1,
-        pagination: {
-            el: '.protection-wrapper .swiper-glass-pagination',
-            clickable: true,
-            type: 'fraction',
-            formatFractionCurrent: (n) => String(n).padStart(2, '0'),
-            formatFractionTotal: (n) => String(n).padStart(2, '0'),
-        },
-    });
+(function(){
 
-    const titleSlider = new Swiper('.protection-wrapper .titleSlider', {
-        loop: true,
-        slidesPerView: 1,
-    });
+const contentSlider = new Swiper('.protection-wrapper .contentSlider',{
+    loop:true,
+    slidesPerView:1,
+    allowTouchMove:false,
+    pagination:{
+        el:'.protection-wrapper .swiper-glass-pagination',
+        clickable:true,
+        type:'fraction',
+        formatFractionCurrent:n=>String(n).padStart(2,'0'),
+        formatFractionTotal:n=>String(n).padStart(2,'0')
+    }
+});
 
-    contentSlider.controller.control = titleSlider;
-    titleSlider.controller.control = contentSlider;
+const mobileSlider = new Swiper('.shield-service-slider',{
+    slidesPerView:1,
+    loop:true
+});
 
-    // Mobile слайдер для карточек
-    const mobileSlider = new Swiper('.shield-service-slider', {
-        slidesPerView: 1,
-        loop: true,
-    });
+const videos = document.querySelectorAll('.slide-video');
 
-    // Функция обновления active
-    function updateActiveBlock(slideIndex) {
-        const allBlocks = document.querySelectorAll('.shield-service-table .schield-block, .shield-service-slider .schield-block');
-        const total = 6; // или можно allBlocks.length / 2, если уверены что desktop + mobile одинаково
-        const realIndex = slideIndex % total;
 
-        allBlocks.forEach((block, i) => {
-            block.classList.toggle('active', i % total === realIndex);
-        });
+/* lazy load */
 
-        // Переключаем мобильный слайдер на нужный элемент
-        mobileSlider.slideToLoop(realIndex, 0);
+function loadVideo(video){
+
+    const source = video.querySelector('source');
+
+    if(!source) return;
+
+    if(!source.src){
+
+        source.src = source.dataset.src;
+
+        video.load();
+
     }
 
-    contentSlider.on('slideChange', () => updateActiveBlock(contentSlider.realIndex));
+}
 
-    // Инициализация
+
+/* stop all */
+
+function stopVideos(){
+
+    videos.forEach(video=>{
+
+        video.pause();
+
+        video.currentTime = 0;
+
+        video.onended=null;
+
+    });
+
+}
+
+
+/* preload next */
+
+function preloadNextVideo(){
+
+    const nextSlide = contentSlider.slides[contentSlider.activeIndex+1];
+
+    if(!nextSlide) return;
+
+    const video = nextSlide.querySelector('video');
+
+    if(video) loadVideo(video);
+
+}
+
+
+/* update active block */
+
+function updateActiveBlock(slideIndex){
+
+    const blocks=document.querySelectorAll(
+        '.shield-service-table .schield-block, .shield-service-slider .schield-block'
+    );
+
+    const total=document.querySelectorAll('.shield-service-table .schield-block').length;
+
+    const realIndex=slideIndex%total;
+
+    blocks.forEach((block,i)=>{
+
+        block.classList.toggle('active',i%total===realIndex);
+
+    });
+
+    mobileSlider.slideToLoop(realIndex,0);
+
+}
+
+
+/* play active */
+
+function playCurrentVideo(){
+
+    stopVideos();
+
+    const activeSlide=contentSlider.slides[contentSlider.activeIndex];
+
+    const video=activeSlide.querySelector('video');
+
+    if(!video) return;
+
+    loadVideo(video);
+
+    video.play().catch(()=>{});
+
+    video.onended=()=>{
+
+        contentSlider.slideNext();
+
+    };
+
+    preloadNextVideo();
+
     updateActiveBlock(contentSlider.realIndex);
+
+}
+
+
+/* events */
+
+contentSlider.on('slideChangeTransitionEnd',playCurrentVideo);
+
+
+/* start */
+
+playCurrentVideo();
+
 })();
 </script>

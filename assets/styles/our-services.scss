@@ -323,15 +323,21 @@
                 }
             }
 
-            &:hover, &.active{
+            &.active{
                 svg *{
                     fill: #71CDB3;
+                }
+                span{
+                    color:#ffffff;
+                }
+                &::after{
+                    transform: translate(0, 50%);
                 }
             }
         }
 
 
-        .hover-light{
+        .after-light{
             overflow: hidden;
             position: relative;
             
@@ -339,12 +345,15 @@
                 color:#526169;
                 transition: color 0.4s ease-in-out;
             }
-            &:hover, &.active{
-                 span{
-                    color:#ffffff;
-                }
-                &::after{
-                    transform: translate(0, 50%);
+
+            &.hover-light{
+                &:hover{
+                    span{
+                        color:#ffffff;
+                    }
+                    &::after{
+                        transform: translate(0, 50%);
+                    }
                 }
             }
             &::after{

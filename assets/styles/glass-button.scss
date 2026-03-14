@@ -2,7 +2,7 @@
     display: inline-block;
     border-radius: 100px;
     padding: 10px;
-    background: #FFFFFF03;
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(32px);
     position: relative;
 
@@ -12,7 +12,7 @@
         inset: 0;
         padding: 1px; /* толщина бордера */
         border-radius: inherit;
-        background: linear-gradient(350deg, rgba(81, 174, 148, 0.253) 0%, rgba(81, 174, 148, 0.24) 20%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0.322)100%);
+        background: linear-gradient(350deg, rgba(81, 174, 148, 0.164) 0%, rgba(106, 177, 157, 0.199) 20%, rgba(66, 66, 66, 0.37) 60%, rgba(255, 255, 255, 0.322)100%);
         -webkit-mask:
             linear-gradient(#fff 0 0) content-box,
             linear-gradient(#fff 0 0);
