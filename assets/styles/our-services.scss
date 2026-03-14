@@ -352,7 +352,7 @@
                         color:#ffffff;
                     }
                     &::after{
-                        transform: translate(0, 50%);
+                        transform: translate(0, 0);
                     }
                 }
             }
@@ -363,7 +363,7 @@
                 height: 100%;
                 width: 100%;
                 /* border-radius: 79%; */
-                background: linear-gradient(0deg, #71CDB3 0%, rgba(255, 255, 255, 0) 60%);
+                background: linear-gradient(0deg, #71CDB3 0%, rgba(255, 255, 255, 0) 30%);
                 filter: blur(40px);
                 pointer-events: none;
                 bottom: 0%;
