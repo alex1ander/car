@@ -207,14 +207,16 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 .main-nav::-webkit-scrollbar {
   display: none;
 }
-.main-nav .mobile-menu {
+
+.mobile-menu {
   border-radius: 20px !important;
   list-style: none;
   padding: 0;
   margin: 0;
   width: 100%;
 }
-.main-nav .menu-link {
+
+.menu-link {
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
@@ -229,34 +231,37 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   text-decoration: none;
   color: inherit;
 }
-.main-nav .menu-item-has-children .arrow-left {
+
+.menu-item-has-children .arrow-left {
   transform: rotate(180deg);
   width: 0;
   overflow: hidden;
   transition: width 0.4s ease;
 }
-.main-nav .menu-item-has-children .arrow-right {
+.menu-item-has-children .arrow-right {
   width: 24px;
   margin-left: auto;
   overflow: hidden;
   transition: width 0.4s ease;
 }
-.main-nav .menu-item-has-children.active .arrow-left {
+.menu-item-has-children.active .arrow-left {
   width: 24px;
 }
-.main-nav .menu-item-has-children.active .arrow-right {
+.menu-item-has-children.active .arrow-right {
   width: 0;
 }
-.main-nav .sub-menu-container {
+
+.sub-menu-container {
   display: grid;
   grid-template-rows: 0fr;
   overflow: hidden;
   transition: grid-template-rows 0.5s ease-in-out;
 }
-.menu-item-has-children.active .main-nav .sub-menu-container {
+.menu-item-has-children.active .sub-menu-container {
   grid-template-rows: 1fr;
 }
-.main-nav .sub-menu {
+
+.sub-menu {
   min-height: 0;
   list-style: none;
   padding: 0;
@@ -265,25 +270,28 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   flex-direction: column;
   gap: 24px;
 }
-.main-nav .sub-menu li:first-child {
+.sub-menu li:first-child {
   margin-top: 12px;
 }
-.main-nav .sub-menu li:last-child {
+.sub-menu li:last-child {
   margin-bottom: 24px;
 }
-.main-nav .sub-menu-link {
+
+.sub-menu-link {
   display: flex;
   flex-direction: column;
   gap: 8px;
   text-decoration: none;
   color: inherit;
 }
-.main-nav .sub-menu-title {
+
+.sub-menu-title {
   font-weight: 500;
   font-size: 11px;
   text-transform: uppercase;
 }
-.main-nav .menu-all-cat-btn a {
+
+.menu-all-cat-btn a {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 13px;
