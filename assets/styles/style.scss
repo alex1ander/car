@@ -42,13 +42,13 @@
 
 /* ===== Полностью минималистичный скроллбар ===== */
 
-*::-webkit-scrollbar
+main::-webkit-scrollbar
 {
 	width: 4px;
   background: #141B19;
 }
 
-*::-webkit-scrollbar-thumb
+main::-webkit-scrollbar-thumb
 {
     border-radius: 4px;
     background-clip: padding-box;

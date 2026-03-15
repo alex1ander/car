@@ -447,7 +447,7 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 @media (max-width: 768px) {
   .our-servises-wrapper .services-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: 46px auto 1fr auto;
     grid-template-areas: "title-place slider-pagination-place" "slider-title-place slider-title-place" "slider-place slider-place" "service-menu-place service-menu-place";
   }
 }
@@ -461,7 +461,7 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 @media (max-width: 768px) {
   .our-servises-wrapper .services-grid.calculation-preset {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto 1fr 1fr auto;
+    grid-template-rows: 46px auto 1fr 1fr auto;
     grid-template-areas: "title-place slider-pagination-place" "slider-title-place slider-title-place" "text-place text-place" "logo-place logo-place" "button-place button-place";
   }
 }
@@ -516,6 +516,9 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 }
 .our-servises-wrapper .slider-title-place {
   display: grid;
+}
+.our-servises-wrapper .title-place {
+  align-self: start;
 }
 .our-servises-wrapper .title-place h2 {
   font-size: 12px;
@@ -927,12 +930,12 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 }
 
 /* ===== Полностью минималистичный скроллбар ===== */
-*::-webkit-scrollbar {
+main::-webkit-scrollbar {
   width: 4px;
   background: #141B19;
 }
 
-*::-webkit-scrollbar-thumb {
+main::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-clip: padding-box;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);

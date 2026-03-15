@@ -17,10 +17,9 @@
                     <h2>НАШИ УСЛУГИ</h2>
                 </div>
                 <div class="slider-pagination-place">
-                    <div class="glass-wrapper glass-pagination">
+                    <!-- <div class="glass-wrapper glass-pagination">
                         <div class="swiper-glass-pagination"></div>
-                    </div>
-
+                    </div> -->
                 </div>
 
                 <div class="slider-title-place">
