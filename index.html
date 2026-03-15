@@ -214,6 +214,7 @@ initBurgerMenu();
     </div>
 </section>
 
+
 <section class="scroll-snap-section">
     <div class="our-servises-wrapper car-wrapper">
 
@@ -229,17 +230,7 @@ initBurgerMenu();
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="image-place">
-                                    <img src="./assets/images/car-1.png" alt="">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="image-place">
-                                    <img src="./assets/images/car-2.png" alt="">
-                                </div>
-                            </div>
-                              <div class="swiper-slide">
-                                <div class="image-place">
-                                    <img src="./assets/images/car-3.png" alt="">
+                                    <img src="./assets/images/SecondSectionCar.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -248,10 +239,9 @@ initBurgerMenu();
                     
                 </div>
                 <div class="slider-pagination-place">
-                    <div class="glass-wrapper glass-pagination">
+                    <!-- <div class="glass-wrapper glass-pagination">
                         <div class="swiper-glass-pagination"></div>
-                    </div>
-
+                    </div> -->
                 </div>
 
                 <div class="slider-title-place">
@@ -263,18 +253,6 @@ initBurgerMenu();
                                     <div class="description">Paint Protection Film</div>
                                 </div>
                              </div>
-                            <div class="swiper-slide">
-                                <div class="service-element-name">
-                                    <h3 class="title">PPF</h3>
-                                    <div class="description">Paint Protection Film</div>
-                                </div>
-                             </div>
-                            <div class="swiper-slide">
-                            <div class="service-element-name">
-                                <h3 class="title">PPF</h3>
-                                <div class="description">Paint Protection Film</div>
-                            </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -342,29 +320,8 @@ initBurgerMenu();
     </div>
 </section>
 
-<script>
-(function() {
-    const contentSlider = new Swiper('.car-wrapper .contentSlider', {
-        loop: true,
-        slidesPerView: 1,
-        pagination: {
-            el: '.car-wrapper .swiper-glass-pagination',
-            clickable: true,
-            type: 'fraction',
-            formatFractionCurrent: (n) => String(n).padStart(2, '0'),
-            formatFractionTotal:   (n) => String(n).padStart(2, '0'),
-        },
-    });
 
-    const titleSlider = new Swiper('.car-wrapper .titleSlider', {
-        loop: true,
-        slidesPerView: 1,
-    });
 
-    contentSlider.controller.control = titleSlider;
-    titleSlider.controller.control = contentSlider;
-})();
-</script>
         <section class="scroll-snap-section">
     <div class="our-servises-wrapper protection-wrapper">   
 

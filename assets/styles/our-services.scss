@@ -31,6 +31,7 @@
     grid-template-columns: 4fr 3fr;
     grid-template-rows: auto auto 1fr auto;
     grid-auto-flow: row;
+    gap: 20px 60px;
     grid-template-areas:
         "title-place title-place"
         ". slider-title-place"
@@ -39,6 +40,7 @@
 
 
     @include mixins.mobile{
+        gap: 0;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 46px auto 1fr auto;
         grid-template-areas:

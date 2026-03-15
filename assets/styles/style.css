@@ -442,10 +442,12 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   grid-template-columns: 4fr 3fr;
   grid-template-rows: auto auto 1fr auto;
   grid-auto-flow: row;
+  gap: 20px 60px;
   grid-template-areas: "title-place title-place" ". slider-title-place" "slider-place service-menu-place" "slider-pagination-place service-menu-place";
 }
 @media (max-width: 768px) {
   .our-servises-wrapper .services-grid {
+    gap: 0;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 46px auto 1fr auto;
     grid-template-areas: "title-place slider-pagination-place" "slider-title-place slider-title-place" "slider-place slider-place" "service-menu-place service-menu-place";
