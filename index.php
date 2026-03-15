@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="./assets/scripts/scrolltelling.js" defer></script>
 </head>
 <body>
     <?php include 'header.php'; ?>

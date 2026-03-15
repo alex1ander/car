@@ -57,19 +57,3 @@
     </div>
 </section>
 
-
-<script>
-const section = document.querySelector('.scroll-snap-section.animate');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      section.classList.add('active');
-    }
-  });
-}, {
-  threshold: 0.6
-});
-
-observer.observe(section);
-</script>

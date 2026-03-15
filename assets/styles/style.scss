@@ -4,6 +4,7 @@
 @use "glass-button";
 @use "sliders";
 @use "mixins";
+@use 'scrolltelling';
 
 
 
@@ -132,18 +133,3 @@ main{
 }
 
 
-.scroll-snap-section {
-  .side-image {
-    transform: translateY(100%);
-    transition: transform 1.8s ease-in-out;
-  }
-}
-
-.scroll-snap-section{
-
-  &.active {
-    .side-image {
-      transform: translateY(0);
-    }
-}
-}

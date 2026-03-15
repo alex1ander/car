@@ -13,7 +13,7 @@
                     <div class="swiper contentSlider carSlider">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="image-place">
+                                <div class="image-place rotate">
                                     <img src="./assets/images/SecondSectionCar.png" alt="">
                                 </div>
                             </div>
