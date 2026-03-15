@@ -1,4 +1,4 @@
-<section class="scroll-snap-section">
+<section class="scroll-snap-section services-section">
     <div class="our-servises-wrapper protection-wrapper">   
 
 
@@ -223,6 +223,8 @@
 <script>
 (function(){
 
+const section = document.querySelector('.services-section');
+
 const contentSlider = new Swiper('.protection-wrapper .contentSlider',{
     loop:true,
     slidesPerView:1,
@@ -255,7 +257,6 @@ function loadVideo(video){
     if(!source.src){
 
         source.src = source.dataset.src;
-
         video.load();
 
     }
@@ -270,10 +271,8 @@ function stopVideos(){
     videos.forEach(video=>{
 
         video.pause();
-
         video.currentTime = 0;
-
-        video.onended=null;
+        video.onended = null;
 
     });
 
@@ -324,9 +323,9 @@ function playCurrentVideo(){
 
     stopVideos();
 
-    const activeSlide=contentSlider.slides[contentSlider.activeIndex];
+    const activeSlide = contentSlider.slides[contentSlider.activeIndex];
 
-    const video=activeSlide.querySelector('video');
+    const video = activeSlide.querySelector('video');
 
     if(!video) return;
 
@@ -334,7 +333,7 @@ function playCurrentVideo(){
 
     video.play().catch(()=>{});
 
-    video.onended=()=>{
+    video.onended = ()=>{
 
         contentSlider.slideNext();
 
@@ -347,14 +346,37 @@ function playCurrentVideo(){
 }
 
 
-/* events */
+/* slider event */
 
-contentSlider.on('slideChangeTransitionEnd',playCurrentVideo);
+contentSlider.on('slideChangeTransitionEnd',()=>{
+
+    if(section.classList.contains('active')){
+        playCurrentVideo();
+    }
+
+});
 
 
-/* start */
+/* следим за появлением класса active */
 
-playCurrentVideo();
+const observer = new MutationObserver(()=>{
+
+    if(section.classList.contains('active')){
+
+        playCurrentVideo();
+
+    }else{
+
+        stopVideos();
+
+    }
+
+});
+
+observer.observe(section,{
+    attributes:true,
+    attributeFilter:['class']
+});
 
 })();
 </script>
