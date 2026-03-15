@@ -220,7 +220,8 @@
 
 
             @include mixins.mobile {
-                aspect-ratio: 16 / 9;
+                // aspect-ratio: 16 / 9;
+                aspect-ratio: 16 / 6;
             }
 
             object{
@@ -249,7 +250,8 @@
                     align-items: flex-start;
 
                     @include mixins.mobile   {
-                       gap: 10px;
+                        gap: 10px;
+                        flex-direction: row;
                     }
 
                     p{
@@ -394,6 +396,11 @@
     aspect-ratio: 1;
     width: 40px;
     height: 40px;
+
+    @include mixins.mobile   {
+         width: 30px;
+        height: 30px;
+    }
 
 
     &.gloss{

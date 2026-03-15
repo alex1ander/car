@@ -597,7 +597,7 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 }
 @media (max-width: 768px) {
   .our-servises-wrapper .services-table .brand-block {
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/6;
   }
 }
 .our-servises-wrapper .services-table .brand-block object {
@@ -626,6 +626,7 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
 @media (max-width: 768px) {
   .our-servises-wrapper .services-table .brand-block.text-information-wrapper .text-information {
     gap: 10px;
+    flex-direction: row;
   }
 }
 .our-servises-wrapper .services-table .brand-block.text-information-wrapper .text-information p {
@@ -744,6 +745,12 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   aspect-ratio: 1;
   width: 40px;
   height: 40px;
+}
+@media (max-width: 768px) {
+  .our-servises-wrapper .glass-color {
+    width: 30px;
+    height: 30px;
+  }
 }
 .our-servises-wrapper .glass-color.gloss {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), radial-gradient(60% 60% at 50% 100%, rgba(109, 196, 171, 0.6) 0%, rgba(109, 196, 171, 0) 100%);
