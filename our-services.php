@@ -46,6 +46,10 @@
                             <tr>
                                 <td colspan="2"><span class="table-title">Бренды мы используем</span></td>
                             </tr>
+                        </table>
+                    </div>
+                    <div class="services-table-wrapper">
+                        <table class="services-table">
                             <tr class="col-2">
                                 <td><div class="brand-block hover-light after-light"><object type="image/svg+xml" data="./assets/images/xpel.svg"></object></div></td>
                                 <td><div class="brand-block hover-light after-light"><object type="image/svg+xml" data="./assets/images/suntek.svg"></object></div></td>

@@ -182,7 +182,7 @@ function initBurgerMenu() {
 initBurgerMenu();
 </script>
     <main>
-        <section class="scroll-snap-section">
+      <section class="scroll-snap-section">
     <div class="hero-wrapper">
         <img src="./assets/images/hero-bg.jpg" alt="" class="bg-image">
 
@@ -214,8 +214,7 @@ initBurgerMenu();
         </div>
     </div>
 </section>
-
-
+  
 <section class="scroll-snap-section">
     <div class="our-servises-wrapper car-wrapper">
 
@@ -263,6 +262,10 @@ initBurgerMenu();
                             <tr>
                                 <td colspan="2"><span class="table-title">Бренды мы используем</span></td>
                             </tr>
+                        </table>
+                    </div>
+                    <div class="services-table-wrapper">
+                        <table class="services-table">
                             <tr class="col-2">
                                 <td><div class="brand-block hover-light after-light"><object type="image/svg+xml" data="./assets/images/xpel.svg"></object></div></td>
                                 <td><div class="brand-block hover-light after-light"><object type="image/svg+xml" data="./assets/images/suntek.svg"></object></div></td>
@@ -320,8 +323,6 @@ initBurgerMenu();
 
     </div>
 </section>
-
-
 
 <section class="scroll-snap-section services-section">
     <div class="our-servises-wrapper protection-wrapper">   
@@ -494,7 +495,7 @@ initBurgerMenu();
 
 
                     <div class="services-table-wrapper mobile-only">
-  <div class="shield-service-slider swiper">
+  <div class="shield-service-slider services-table swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="schield-block after-light text-information-wrapper">
@@ -705,11 +706,7 @@ observer.observe(section,{
 
 })();
 </script>
-
-
-
-
-        <section class="scroll-snap-section animate">
+      <section class="scroll-snap-section animate">
     <div class="our-servises-wrapper calculation-wrapper">   
         <div class="bg-slider">
             <div class="swiper contentSlider">
@@ -731,7 +728,6 @@ observer.observe(section,{
                     <!-- <div class="glass-wrapper glass-pagination">
                         <div class="swiper-glass-pagination"></div>
                     </div> -->
-
                 </div>
 
                 <div class="slider-title-place">
@@ -770,21 +766,6 @@ observer.observe(section,{
 </section>
 
 
-<script>
-const section = document.querySelector('.scroll-snap-section.animate');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      section.classList.add('active');
-    }
-  });
-}, {
-  threshold: 0.6
-});
-
-observer.observe(section);
-</script>
     </main>
     <footer>
         <svg xmlns="http://www.w3.org/2000/svg" style="display:none">

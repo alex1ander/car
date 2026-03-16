@@ -169,7 +169,7 @@
 
 
                     <div class="services-table-wrapper mobile-only">
-  <div class="shield-service-slider swiper">
+  <div class="shield-service-slider services-table swiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="schield-block after-light text-information-wrapper">
