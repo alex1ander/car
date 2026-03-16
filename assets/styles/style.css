@@ -910,12 +910,12 @@ header .glass-burger-wrapper .burger-block.open span:nth-child(2) {
   }
 }
 
-.line-title,
-.short-description,
-.title-place,
-.slider-title-place,
-.text-place,
-.logo-place {
+.scroll-snap-section .line-title,
+.scroll-snap-section .short-description,
+.scroll-snap-section .title-place,
+.scroll-snap-section .slider-title-place,
+.scroll-snap-section .text-place,
+.scroll-snap-section .logo-place {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1), transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);

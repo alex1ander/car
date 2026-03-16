@@ -9,19 +9,20 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
 // БАЗОВОЕ СОСТОЯНИЕ
 // ============================================================
 
-.line-title,
-.short-description,
-.title-place,
-.slider-title-place,
-.text-place,
-.logo-place {
-  opacity: 0;
-  transform: translateY(40px);
-  transition:
-  opacity   1.8s $ease,
-  transform 1.8s $ease;
+.scroll-snap-section{
+  .line-title,
+  .short-description,
+  .title-place,
+  .slider-title-place,
+  .text-place,
+  .logo-place {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+    opacity   1.8s $ease,
+    transform 1.8s $ease;
+  }
 }
-
 
 .image-place.rotate img {
     transform: rotate(-7deg)  scale(0.9); 
