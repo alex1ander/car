@@ -1,5 +1,19 @@
 {
-  "dependencies": {
-    "sass": "^1.97.3"
+  "name": "www",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "sass assets/styles/main.scss:assets/styles/style.css --no-source-map",
+    "watch:css": "sass --watch assets/styles/main.scss:assets/styles/style.css",
+    "build": "npm run build:css",
+    "start": "npm run watch:css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.99.0"
   }
 }

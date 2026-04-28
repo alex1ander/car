@@ -1,0 +1,126 @@
+
+@use "./components/variables";
+@use "./components/preloader";
+@use "./components/built-solutions";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(4, 5, 6);
+    color: #ffffff;
+    // overflow: clip;
+    font-family: "Inter", sans-serif;
+}
+
+
+.container{
+    width: 100%;
+    max-width: 1440px;
+    margin: auto;
+}
+
+img{
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.title-block{
+    h2{
+        font-weight: 600;
+        font-size: 48px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    p{
+        font-weight: 300;
+        font-size: 20px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+
+.bg-image-container{
+    position: relative;
+
+    .bg-image{
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        object-fit: cover;
+    }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  // стеклянная рамка + диагональный свет
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    padding: 1px;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.1) 35%,
+      rgba(255, 255, 255, 0.05) 60%,
+      rgba(255, 255, 255, 0.6) 100%
+    );
+
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  // внутренний стеклянный блик + inset
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+
+    background: radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.25),
+      transparent 55%
+    );
+
+    box-shadow:
+      inset -4px -4px 10px rgba(255, 255, 255, 0.08),
+      inset 4px 4px 12px rgba(0, 0, 0, 0.45);
+
+    pointer-events: none;
+  }
+
+  svg {
+    width: 7px !important;
+    height: 15px !important;
+    position: relative;
+    z-index: 2;
+  }
+}

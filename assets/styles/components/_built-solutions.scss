@@ -1,0 +1,71 @@
+#built-solution {
+
+    .container {
+        padding-top: 120px;
+    }
+
+    .slider-built-solution {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .swiper-button-prev{
+            left: 12.5%;
+        }
+        .swiper-button-next{
+            right: 12.5%;
+        }
+
+    }
+
+    .tablet-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    // САМ СЛАЙДЕР (внутри экрана)
+    .swiper {
+        position: absolute;
+        inset: 0;
+        width: 61%;
+        margin-top: 11%;
+        aspect-ratio: 16 / 9;
+        z-index: 1;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    // РАМКА ПЛАНШЕТА
+    .tablet-image {
+        position: relative;
+        width: 100%;
+        z-index: 5;
+        pointer-events: none;
+        display: block;
+    }
+
+    // СТРЕЛКИ (по бокам планшета)
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: #fff;
+        width: 44px;
+        height: 44px;
+    }
+
+    .swiper-button-prev {
+        left: -60px; // ВНЕ планшета слева
+    }
+
+    .swiper-button-next {
+        right: -60px; // ВНЕ планшета справа
+    }
+}

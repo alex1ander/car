@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(4, 5, 6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: all 0.3s ease-in-out;
+}
+#preloader .svg-wrapper {
+  position: relative;
+}
+#preloader .svg-wrapper svg {
+  width: 60px;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 4.4s ease;
+}
+#preloader .svg-wrapper #pre-pct {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  transition: opacity 0.4s ease-in-out;
+}
+#preloader.loaded .svg-wrapper svg {
+  transform: scale(150);
+}
+#preloader.loaded .svg-wrapper #pre-pct {
+  opacity: 0;
+}
+
+#built-solution .container {
+  padding-top: 120px;
+}
+#built-solution .slider-built-solution {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#built-solution .slider-built-solution .swiper-button-prev {
+  left: 12.5%;
+}
+#built-solution .slider-built-solution .swiper-button-next {
+  right: 12.5%;
+}
+#built-solution .tablet-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+#built-solution .swiper {
+  position: absolute;
+  inset: 0;
+  width: 61%;
+  margin-top: 11%;
+  aspect-ratio: 16/9;
+  z-index: 1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#built-solution .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#built-solution .tablet-image {
+  position: relative;
+  width: 100%;
+  z-index: 5;
+  pointer-events: none;
+  display: block;
+}
+#built-solution .swiper-button-prev,
+#built-solution .swiper-button-next {
+  color: #fff;
+  width: 44px;
+  height: 44px;
+}
+#built-solution .swiper-button-prev {
+  left: -60px;
+}
+#built-solution .swiper-button-next {
+  right: -60px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(4, 5, 6);
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+
+img {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.title-block h2 {
+  font-weight: 600;
+  font-size: 48px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.title-block p {
+  font-weight: 300;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bg-image-container {
+  position: relative;
+}
+.bg-image-container .bg-image {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.swiper-button-prev::before,
+.swiper-button-next::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 35%, rgba(255, 255, 255, 0.05) 60%, rgba(255, 255, 255, 0.6) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.25), transparent 55%);
+  box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.08), inset 4px 4px 12px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  width: 7px !important;
+  height: 15px !important;
+  position: relative;
+  z-index: 2;
+}
+
+/*# sourceMappingURL=style.css.map */
