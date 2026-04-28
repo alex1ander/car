@@ -1,43 +1,128 @@
+
+@use "mixins" as *;
+
 #built-solution {
 
     .container {
-        padding-top: 120px;
+        padding-top: 90px;
     }
 
     .slider-built-solution {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-
-
-        .swiper-button-prev{
-            left: 12.5%;
-        }
-        .swiper-button-next{
-            right: 12.5%;
-        }
-
-    }
-
-    .tablet-wrapper {
         position: relative;
-        width: 100%;
-        max-width: 100%;
+
+
+        .text-infortion-slider{
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-left:  auto;
+            margin-right: 40px;
+            display: flex;
+            height: 100px;
+
+            @include mobile {
+                display: none;
+            }
+
+
+        }
+
+        .text-slide{
+
+            .text-block{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 8px;
+                h3{
+                    font-weight: 600;
+                    font-size: 20px;
+
+                }
+                span{
+                    font-weight: 400;
+                    font-size: 16px;
+                    opacity: 0.5;
+                }
+            }
+        }
+
+
+
+        .tablet-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+
+            @include mobile {
+                width: 155%;
+                max-width: 155%;
+            }
+        
+            .bs-swiper-button-prev{
+                left: 12.5%;
+                @include mobile {
+                    display: none;
+                }
+            }
+            .bs-swiper-button-next{
+                right: 12.5%;
+                @include mobile {
+                    display: none;
+                }
+            }
+        }
+
     }
+
 
     // САМ СЛАЙДЕР (внутри экрана)
-    .swiper {
+    .bs-swiper {
         position: absolute;
         inset: 0;
-        width: 61%;
+        width: 62%;
         margin-top: 11%;
         aspect-ratio: 16 / 9;
         z-index: 1;
         border-radius: 20px;
         overflow: hidden;
+
+        img{
+            width: 100%;
+        }
     }
 
-    .swiper-slide img {
+    .text-slider-mobile{
+        display: flex;
+        width: 100%;
+        margin-top: 40px;
+
+
+        @include desktop {
+            display: none;
+        }
+        @include tablet {
+            display: none;
+        }
+
+        .bs-text-swiper-mobile{
+            .swiper-slide{
+                display: flex;
+                justify-content: center;
+
+                .text-block{
+                    align-items: center;
+                }
+            }
+        }
+
+    }
+
+    .bs-swiper-slide img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -51,21 +136,5 @@
         z-index: 5;
         pointer-events: none;
         display: block;
-    }
-
-    // СТРЕЛКИ (по бокам планшета)
-    .swiper-button-prev,
-    .swiper-button-next {
-        color: #fff;
-        width: 44px;
-        height: 44px;
-    }
-
-    .swiper-button-prev {
-        left: -60px; // ВНЕ планшета слева
-    }
-
-    .swiper-button-next {
-        right: -60px; // ВНЕ планшета справа
     }
 }

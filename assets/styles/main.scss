@@ -1,5 +1,5 @@
 
-@use "./components/variables";
+@use "./components/mixins" as *;
 @use "./components/preloader";
 @use "./components/built-solutions";
 
@@ -23,6 +23,7 @@ body{
     width: 100%;
     max-width: 1440px;
     margin: auto;
+    overflow: hidden;
 }
 
 img{
@@ -37,12 +38,20 @@ img{
         font-size: 48px;
         text-align: center;
         text-transform: uppercase;
+
+        @include mobile {
+            font-size: 32px;
+        }
     }
     p{
         font-weight: 300;
         font-size: 20px;
         text-align: center;
         text-transform: uppercase;
+        opacity: 0.5;
+        @include mobile {
+            font-size: 15px;
+        }
     }
 }
 
@@ -63,17 +72,21 @@ img{
 
 .swiper-button-prev,
 .swiper-button-next {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+    width: 48px;
+    height: 48px;
+    color: #fff!important;
+    aspect-ratio: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 
   // стеклянная рамка + диагональный свет
   &::before {
@@ -104,21 +117,14 @@ img{
     inset: 0;
     border-radius: 50%;
 
-    background: radial-gradient(
-      circle at top left,
-      rgba(255, 255, 255, 0.25),
-      transparent 55%
-    );
-
     box-shadow:
-      inset -4px -4px 10px rgba(255, 255, 255, 0.08),
+      inset -4px -4px 10px rgba(0, 0, 0, 0.08),
       inset 4px 4px 12px rgba(0, 0, 0, 0.45);
 
     pointer-events: none;
   }
 
   svg {
-    width: 7px !important;
     height: 15px !important;
     position: relative;
     z-index: 2;

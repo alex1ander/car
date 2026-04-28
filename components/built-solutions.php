@@ -13,10 +13,32 @@
 
             <div class="slider-built-solution">
 
+                <div class="text-infortion-slider">
+                    <div class="swiper bs-text-swiper">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide text-slide">
+                                <div class="text-block">
+                                    <span>iOS/Android App</span>
+                                    <h4>Minto Bank</h4>
+                                </div>
+                            </div> 
+
+                            <div class="swiper-slide text-slide">
+                                <div class="text-block">
+                                    <span>iOS/Android App</span>
+                                    <h4>Minto Bank</h4>
+                                </div>
+                            </div> 
+                        </div>  
+                    </div>      
+                </div>
+
+
                 <div class="tablet-wrapper">
 
                     <!-- SWIPER -->
-                    <div class="swiper mySwiper">
+                    <div class="swiper bs-swiper">
                         <div class="swiper-wrapper">
 
                             <div class="swiper-slide">
@@ -34,9 +56,35 @@
                     <!-- рамка сверху -->
                     <img class="tablet-image" src="../assets/images/tablet.png" alt="">
                                             <!-- стрелки ВНУТРИ -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev bs-swiper-button-prev"></div>
+                    <div class="swiper-button-next bs-swiper-button-next"></div>
 
+                </div>
+
+
+
+                <div class="text-slider-mobile">
+                    <div class="swiper bs-text-swiper-mobile">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide text-slide">
+                                <div class="text-block">
+                                    <span>iOS/Android App</span>
+                                    <h4>Minto Bank</h4>
+                                </div>
+                            </div> 
+
+                            <div class="swiper-slide text-slide">
+                                <div class="text-block">
+                                    <span>iOS/Android App</span>
+                                    <h4>Minto Bank</h4>
+                                </div>
+                            </div> 
+                        </div>  
+
+                        <div class="swiper-button-prev bs-swiper-button-prev"></div>
+                        <div class="swiper-button-next bs-swiper-button-next"></div>
+                    </div> 
                 </div>
 
             </div>
