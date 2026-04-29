@@ -10,6 +10,7 @@
         href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
         />
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -23,6 +24,8 @@
         ?>
         <?php include 'components/built-solutions.php'; ?>
         <?php include 'components/core-expertise.php'; ?>
+        <?php include 'components/the-foundetion.php'; ?>
+        
     </main>
     <?php include 'footer.php'; ?>
 </body>

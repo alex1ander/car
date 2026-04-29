@@ -3,6 +3,7 @@
 @use "./components/preloader";
 @use "./components/built-solutions";
 @use "./components/core-expertise";
+@use "./components/the-foundetion";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -27,6 +28,13 @@ body{
     overflow: hidden;
 }
 
+
+.content{
+    margin-top: 60px;
+    @include mobile{
+        margin-top: 40px;
+    }
+}
 
 .section-container{
     margin-top: 90px;
