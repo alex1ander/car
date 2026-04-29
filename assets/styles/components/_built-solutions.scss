@@ -3,9 +3,6 @@
 
 #built-solution {
 
-    .container {
-        padding-top: 90px;
-    }
 
     .slider-built-solution {
         display: flex;
@@ -100,6 +97,7 @@
         display: flex;
         width: 100%;
         margin-top: 40px;
+        margin-bottom: 20px;
 
 
         @include desktop {

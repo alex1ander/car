@@ -5,7 +5,11 @@ const mainSwiper = new Swiper(".bs-swiper", {
     navigation: {
         nextEl: ".bs-swiper-button-next",
         prevEl: ".bs-swiper-button-prev",
+        
     },
+    pagination: {
+        el: ".bs-pagination",
+      },
 });
 
 const textSwiper = new Swiper(".bs-text-swiper", {

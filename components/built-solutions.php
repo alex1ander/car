@@ -56,9 +56,8 @@
                     <!-- рамка сверху -->
                     <img class="tablet-image" src="../assets/images/tablet.png" alt="">
                                             <!-- стрелки ВНУТРИ -->
-                    <div class="swiper-button-prev bs-swiper-button-prev"></div>
-                    <div class="swiper-button-next bs-swiper-button-next"></div>
-
+                    <div class="swiper-button-prev bs-swiper-button-prev glass-effect"></div>
+                    <div class="swiper-button-next bs-swiper-button-next glass-effect"></div>
                 </div>
 
 
@@ -82,10 +81,12 @@
                             </div> 
                         </div>  
 
-                        <div class="swiper-button-prev bs-swiper-button-prev"></div>
-                        <div class="swiper-button-next bs-swiper-button-next"></div>
+                        <div class="swiper-button-prev bs-swiper-button-prev glass-effect"></div>
+                        <div class="swiper-button-next bs-swiper-button-next glass-effect"></div>
                     </div> 
                 </div>
+
+                <div class="swiper-pagination bs-pagination"></div>
 
             </div>
 
@@ -94,4 +95,4 @@
 
 </section>
 
-<script src="../assets/scripts/sliders.js"></script>
+<script src="../assets/scripts/bs-sliders.js"></script>

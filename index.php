@@ -13,12 +13,16 @@
 
 </head>
 <body>
+
+
+
     <?php include 'header.php'; ?>
     <main>
         <?php 
         // include 'components/preloader.php'; 
         ?>
         <?php include 'components/built-solutions.php'; ?>
+        <?php include 'components/core-expertise.php'; ?>
     </main>
     <?php include 'footer.php'; ?>
 </body>

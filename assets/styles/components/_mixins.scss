@@ -23,3 +23,53 @@ $desktop: 1280px;
     @content;
   }
 }
+
+
+@mixin glass-effect($radius: 50%) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: $radius;
+
+  // стеклянная рамка + диагональный свет
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: $radius;
+
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.1) 35%,
+      rgba(255, 255, 255, 0.05) 60%,
+      rgba(255, 255, 255, 0.6) 100%
+    );
+
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  // внутренний стеклянный блик
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: $radius;
+
+    // box-shadow:
+    //   inset -4px -4px 10px rgba(0, 0, 0, 0.08),
+    //   inset 4px 4px 12px rgba(0, 0, 0, 0.45);
+
+    pointer-events: none;
+  }
+}

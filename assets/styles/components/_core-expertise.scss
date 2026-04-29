@@ -1,0 +1,129 @@
+@use "mixins" as *;
+
+#core-expertise{
+    
+    .place-for-slider{
+        margin-top: 60px;
+        @include mobile{
+            margin-top: 40px;
+        }
+    }
+
+    .card-service{
+
+        position: relative;
+        padding: 12% 14%;
+
+        @include mobile{
+            padding: 24% 20%;
+        }
+            
+
+        .reck {
+            background: rgba(255, 0, 0, 0.247);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            inset: 0;
+            margin: auto;
+
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+
+            -webkit-mask-position: center;
+            mask-position: center;
+
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+
+            &-0 {
+                -webkit-mask-image: url("/assets/images/reck/reck-1-1.png");
+                mask-image: url("/assets/images/reck/reck-1-1.png");
+                width: 100%;
+                height: 100%;
+            }
+
+            &-1 {
+                -webkit-mask-image: url("/assets/images/reck/reck-1-2.png");
+                mask-image: url("/assets/images/reck/reck-1-2.png");
+                width: 94%;
+                height: 94%;
+            }
+
+            &-2 {
+                -webkit-mask-image: url("/assets/images/reck/reck-1-3.png");
+                mask-image: url("/assets/images/reck/reck-1-3.png");
+                width: 84%;
+                height: 84%;
+            }
+        }
+        
+
+            
+
+        }
+
+        .card-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 17px;
+            .card-icon{
+                @include glass-effect(20px);
+                width: 64px;
+                height: 64px;
+
+                @include mobile{
+                    @include glass-effect(15px);
+                    width: 40px;
+                    height: 40px;
+                }
+
+                svg{
+                    @include mobile{
+                    height: 24px;
+                    width: 24px;
+                    }
+                }
+            }
+
+            h3{
+                font-weight: 500;
+                font-size: 48px;
+                @include mobile{
+                    font-size: 24px;
+                }
+            }
+
+            p{
+                font-weight: 300;
+                font-size: 20px;
+                @include mobile{
+                    font-size: 15px;
+                }
+            }
+
+            .tags{
+                display: flex;
+                gap: 16px;
+
+                @include mobile{
+                    flex-direction: column;
+                }
+                .tag{
+                    @include glass-effect(3em);
+                    padding: 1em 2em;
+                    @include mobile{
+                       padding: 1em;
+                    }
+                }
+            }
+        }
+    
+
+}
