@@ -38,6 +38,9 @@
   opacity: 0;
 }
 
+#built-solution .content {
+  overflow: hidden;
+}
 #built-solution .slider-built-solution {
   display: flex;
   flex-direction: column;
@@ -348,10 +351,58 @@
   }
 }
 
+#the-foundetion .tf-content {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
 #the-foundetion .info-parts {
   display: flex;
   align-items: center;
   gap: 40px;
+}
+@media (max-width: 767px) {
+  #the-foundetion .info-parts {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}
+#the-foundetion .info-parts {
+  position: relative;
+}
+#the-foundetion .info-parts .light {
+  background: #57A6FB;
+  position: absolute;
+  z-index: -1;
+  border-radius: 100%;
+}
+#the-foundetion .info-parts .light-1 {
+  width: 18vw;
+  height: 30dvw;
+  filter: blur(9dvw);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+#the-foundetion .info-parts .light-2 {
+  width: 14dvw;
+  height: 12dvw;
+  filter: blur(7dvw);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#the-foundetion .info-parts .light-3 {
+  width: 16dvw;
+  height: 16dvw;
+  filter: blur(8dvw);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
 }
 #the-foundetion .info-parts .text-part {
   max-width: 350px;
@@ -366,30 +417,198 @@
 #the-foundetion .info-parts .text-part h3 span {
   color: #57A6FB;
 }
+@media (max-width: 767px) {
+  #the-foundetion .info-parts .text-part h3 {
+    font-size: 24px;
+  }
+}
 #the-foundetion .info-parts .text-part p {
   font-weight: 300;
   font-size: 15px;
 }
 #the-foundetion .info-parts .numer-part {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   width: 100%;
   justify-content: space-between;
+  background: url("/assets/images/tf-bg.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-clip: text;
 }
 #the-foundetion .info-parts .numer-part .numer-block {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 #the-foundetion .info-parts .numer-part .numer-block .numer {
   font-family: "Roboto Flex", sans-serif;
-  font-size: clamp(80px, 20vw, 310px);
+  font-size: 310px;
   font-weight: 500;
   font-variation-settings: "wdth" 30;
   line-height: 0.85;
   pointer-events: none;
+  color: transparent;
 }
+@media (max-width: 767px) {
+  #the-foundetion .info-parts .numer-part .numer-block .numer {
+    font-size: 180px;
+  }
+}
+#the-foundetion .info-parts .numer-part .numer-block p {
+  color: #fff;
+}
+#the-foundetion .brand {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+#the-foundetion .brand::after {
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: 4px;
+  right: -30px;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #C4C4C4 0%, #727272 100%);
+}
+#the-foundetion .slider-part {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+#the-foundetion .slider-part .tf-swiper {
+  width: 100%;
+}
+#the-foundetion .slider-part .tf-swiper .swiper-slide {
+  width: fit-content;
+}
+#the-foundetion .slider-part h5 {
+  font-weight: 400;
+  font-size: 15px;
+  opacity: 0.5;
+  text-align: center;
+}
+
+#about-us .review-photo-card {
+  position: relative;
+  margin: 5% 0;
+  max-width: 90%;
+}
+#about-us .review-photo-card .photo-review {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 120%;
+  aspect-ratio: 3/5;
+  overflow: hidden;
+  border-radius: 32px;
+  min-width: 33%;
+  max-width: 33%;
+}
+@media (max-width: 767px) {
+  #about-us .review-photo-card .photo-review {
+    position: absolute;
+    z-index: -2;
+    left: 20px;
+    top: -50%;
+    bottom: auto;
+    right: auto;
+    width: auto;
+    max-width: 100%;
+  }
+}
+#about-us .review-photo-card .photo-review img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#about-us .review-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-right: 33%;
+}
+@media (max-width: 767px) {
+  #about-us .review-card {
+    margin-top: 50%;
+    margin-right: 0;
+  }
+}
+#about-us .review-card .reck {
+  background: rgba(255, 0, 0, 0.247);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+#about-us .review-card .reck-0 {
+  -webkit-mask-image: url("/assets/images/reck/rec-review.png");
+  mask-image: url("/assets/images/reck/rec-review.png");
+  width: 108%;
+  height: 106%;
+  top: 10%;
+}
+@media (max-width: 767px) {
+  #about-us .review-card .reck-0 {
+    left: -5%;
+  }
+}
+#about-us .review-content {
+  margin: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+#about-us .review-content .review-part {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#about-us .review-content .review-part .stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+#about-us .review-content .review-part .stars .rating {
+  margin-left: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+#about-us .review-content .review-part .name {
+  font-weight: 600;
+  font-size: 24px;
+}
+#about-us .review-content .review-part .role {
+  opacity: 0.5;
+  font-weight: 400;
+  font-size: 15px;
+}
+#about-us .review-content .review-part .review-text {
+  font-weight: 300;
+  font-size: 15px;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -404,9 +623,9 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1460px;
   margin: auto;
-  overflow: hidden;
+  padding: 10px;
 }
 
 .content {
@@ -429,6 +648,11 @@ img {
   user-select: none;
 }
 
+.title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .title-block h2 {
   font-weight: 600;
   font-size: 48px;
@@ -463,6 +687,7 @@ img {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   max-width: 100%;
   object-fit: cover;
 }

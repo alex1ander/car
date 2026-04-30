@@ -1,0 +1,136 @@
+
+@use "mixins" as *;
+
+#about-us{
+    
+    .review-photo-card{
+        position: relative;
+        margin: 5% 0;
+        max-width: 90%;
+        .photo-review{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            height: 120%;
+            aspect-ratio: 3 / 5;
+            overflow: hidden;
+            border-radius: 32px;
+            min-width: 33%;
+            max-width: 33%;
+            @include mobile{
+                position: absolute;
+                z-index: -2;
+                left: 20px;
+                top: -50%;
+                bottom: auto;
+                right: auto;
+                width: auto;
+                max-width: 100%;
+            }
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .review-card{
+
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        margin-right: 33%;
+        @include mobile{
+            margin-top: 50%;
+            margin-right: 0;
+        }
+        
+
+        .reck {
+            background: rgba(255, 0, 0, 0.247);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            inset: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+
+            -webkit-mask-position: center;
+            mask-position: center;
+
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+
+            &-0 {
+                -webkit-mask-image: url("/assets/images/reck/rec-review.png");
+                mask-image: url("/assets/images/reck/rec-review.png");
+
+                width: 108%;
+                height: 106%;
+                top: 10%;
+                @include mobile{
+                    left: -5%;
+                }
+            }
+        }
+        
+
+            
+
+        }
+
+        .review-content{
+            margin: 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+
+            .review-part{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                .stars{
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+
+                    .rating{
+                        margin-left: 6px;
+                        font-size: 15px;
+                        font-weight: 600;
+                    }
+                }
+
+                .name{
+                    font-weight: 600;
+                    font-size: 24px;
+                }
+
+                .role{
+                    opacity: 0.5;
+                    font-weight: 400;
+                    font-size: 15px;
+                }
+
+                .review-text{
+                    font-weight: 300;
+                    font-size: 15px;
+                }
+            }
+
+        }
+    
+
+}

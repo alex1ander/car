@@ -4,10 +4,59 @@
 #the-foundetion{
 
 
+    .tf-content{
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+    }
     .info-parts{
         display: flex;
         align-items: center;
         gap: 40px;
+
+        @include mobile{
+            flex-direction: column-reverse;
+            align-items: flex-start;
+        }
+
+
+        position: relative;
+        .light{
+            background: #57A6FB;
+            position: absolute;
+            z-index: -1;
+            border-radius: 100%;
+
+
+            &-1{
+                width: 18vw;
+                height: 30dvw;
+                filter: blur(9dvw);
+                top: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+            }
+            &-2{
+                width: 14dvw;
+                height: 12dvw;  
+                filter: blur(7dvw);
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+            &-3{
+                width: 16dvw;
+                height: 16dvw;  
+                filter: blur(8dvw);
+                top: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+            }
+        }
 
 
         .text-part{
@@ -21,6 +70,9 @@
                 span{
                     color: #57A6FB;
                 }
+                @include mobile{
+                    font-size: 24px;
+                }
             }
             p{
                 font-weight: 300;
@@ -30,28 +82,76 @@
 
         .numer-part{
             display: flex;
+            flex-wrap: wrap;
             gap: 12px;
             width: 100%;
             justify-content: space-between;
+            background: url('/assets/images/tf-bg.png') no-repeat;
+            background-position: center;
+            background-size: cover;
+            -webkit-background-clip: text;
 
             .numer-block{
-                position: relative;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 .numer{
                     font-family: "Roboto Flex", sans-serif;
-                    font-size: clamp(80px, 20vw, 310px);
+                    font-size: 310px;
                     font-weight: 500;
                     font-variation-settings: "wdth" 30;
                     line-height: 0.85;
                     pointer-events: none;
+                    color: transparent;
+
+                    @include mobile{
+                        font-size: 180px;
+                    }
                 }
 
                 p{
-                    
+                    color: #fff;
                 }
             }
+        }
+    }
+
+
+    .brand{
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        &::after{
+            position: absolute;
+            content: '';
+            width: 4px;
+            height: 4px;
+            right: -30px;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            background: linear-gradient(180deg, #C4C4C4 0%, #727272 100%);
+        }
+    }
+    .slider-part{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+        .tf-swiper{
+            width: 100%;
+            .swiper-slide{
+                width: fit-content;
+            }
+        }
+
+
+        h5{
+            font-weight: 400;
+            font-size: 15px;
+            opacity: 0.5;
+            text-align: center;
         }
     }
 }

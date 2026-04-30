@@ -3,7 +3,9 @@
 
 #built-solution {
 
-
+    .content{
+        overflow: hidden;
+    }
     .slider-built-solution {
         display: flex;
         flex-direction: column;

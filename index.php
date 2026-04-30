@@ -25,7 +25,7 @@
         <?php include 'components/built-solutions.php'; ?>
         <?php include 'components/core-expertise.php'; ?>
         <?php include 'components/the-foundetion.php'; ?>
-        
+        <?php include 'components/about-us.php'; ?>
     </main>
     <?php include 'footer.php'; ?>
 </body>
