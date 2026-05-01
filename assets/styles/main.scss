@@ -5,6 +5,8 @@
 @use "./components/core-expertise";
 @use "./components/the-foundetion";
 @use "./components/about-us";
+@use "./components/comunication";
+@use "./components/blog";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -12,6 +14,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-wrap: balance;
 }
 
 body{
@@ -79,7 +82,7 @@ img{
     position: relative;
 
     .bg-image{
-        opacity: 0.3;
+        // opacity: 0.3;
         position: absolute;
         z-index: -1;
         top: 0;
@@ -87,7 +90,7 @@ img{
         width: 100%;
         height: 100%;
         max-width: 100%;
-        object-fit: cover;
+        // object-fit: cover;
     }
 }
 
@@ -113,6 +116,7 @@ img{
 
 
 .swiper-pagination{
+    margin-top: 60px;
     position: static!important;
     display: flex;
     justify-content: center;
@@ -130,4 +134,21 @@ img{
         }
     }
 
+}
+
+.btn-glass-effect{
+    @include glass-effect(34px);
+    padding: 16px;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    min-width: 224px;
+
+    transition: 0.4s ease background;
+}
+
+.h-100{
+    height: 100%;
 }

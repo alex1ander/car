@@ -1,5 +1,6 @@
 const ceSwiper = new Swiper(".ce-swiper", {
     slidesPerView: 1.8,
+    spaceBetween: 60,
     pagination: {
         el: ".ce-pagination",
     },

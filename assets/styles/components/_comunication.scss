@@ -1,0 +1,229 @@
+
+@use "mixins" as *;
+
+#comunication{
+
+    .table-form{
+        margin: auto;
+        background: linear-gradient(0deg,rgb(202, 202, 202) 7%, rgb(202, 202, 202) 72%, rgba(102, 102, 102, 1) 100%);
+        border-radius: 80px;
+        padding: 40px;
+
+        .current-form{
+            display: flex;
+            gap: 20px;
+
+            border-radius: 40px;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg,rgba(191, 191, 191, 1) 7%, rgba(179, 177, 177, 1) 72%, rgba(54, 54, 54, 1) 100%);
+
+            padding: 20px;
+
+            @include mobile{
+                flex-direction: column;
+            }
+
+            .part-form{
+                &-wrapper{
+                    display: flex;
+                    background: #00000059;
+                    box-shadow: 0px 7px 19px 0px #FFFFFF1A;
+                    box-shadow: 0px 4px 17px 0px #00000059 inset;
+                    border-radius: 20px;
+                }
+
+                $gap: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: $gap;
+                padding: 20px;
+
+                // width: 100%;
+                .input-row{
+                    display: flex;
+                    gap: $gap;
+                    width: 100%;
+                    
+
+                    @include tablet{
+                        flex-wrap: wrap;
+                    }
+                    @include mobile{
+                        flex-wrap: wrap;
+                    }
+                }
+
+                .halb-col{
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap;
+                    width: 100%;
+                }
+
+                .titles{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
+                .part-title{
+                    font-weight: 600;
+                    font-size: 24px;
+                }
+                .part-text{
+                    font-weight: 400;
+                    font-size: 14px;
+                    opacity: 0.5;
+                }
+
+                .input-wrapper{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+
+                    @include mobile{
+                        width: 100%;
+                    }
+
+
+                    &.button-checker{
+                        background: rgba(0, 0, 0, 0.2);
+                        padding: 16px;
+                        border-radius: 15px;
+                        gap: $gap;
+                        h4{
+                            font-size: 20px;
+                        }
+                    }
+
+                    .input-label{
+                        font-weight: 400;
+                        font-size: 13px;
+                    }
+
+                    .input-block{
+                        background: #00000033;
+                        display: flex;
+                        gap: 8px;
+                        min-height: 54px;
+                        padding: 14px;
+                        align-items: center;
+                        border-radius: 15px;
+                        input,textarea{
+                            font-weight: 400;
+                            font-size: 15px;
+                            background: transparent;
+                            outline: none!important;
+                            border: none!important;
+                            height: 100%;
+                            width: 100%;
+                            color: #fff;
+                        }
+                        
+                        textarea{
+                            min-height: 80px;
+                            width: 100%;
+                            resize: none;
+                        }
+
+                        svg{
+
+                        }
+                    }
+                }
+
+
+                .or-line{
+                    opacity: 0.5;
+                    font-weight: 400;
+                    font-size: 13px;
+                    display: flex;
+                    align-items: center;
+                    
+                    span{
+                        padding: 0 10px;
+                    }
+                    &::after{
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 1px;
+                        background: #fff;
+                        opacity: 0.5;
+                    }
+                    &::before{
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 1px;
+                        background: #fff;
+                        opacity: 0.5;
+                    }
+                }
+
+                .social-links{
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 20px;
+
+                    .link{
+                        display: flex;
+                        gap: 8px;
+                        align-items: center;
+                        font-weight: 400;
+                        font-size: 15px;
+                        cursor: pointer;
+                    }
+                }
+
+                label.btn-glass-effect{
+                   min-width: auto;
+                }
+                .btn-glass-effect{
+                    width: 100%;
+                    background: #1A1A1A40;
+                    &:has(input:checked){
+                       background: #57A6FB59;
+
+                       &::before{
+                            background: #57A6FB;
+                       }
+                    }
+
+
+                    &.confirm{
+                        max-width: 224px;
+                        background: #57A6FB;
+                        margin: auto auto 0;
+                    }
+                }
+
+            }
+        }
+    }
+
+
+
+    //animations
+    &.section-container{
+        .table-form{
+            transform: scale(0.4);
+            transition: 3.8s ease-in-out transform;
+        }
+
+        .part-form{
+            opacity: 0;
+            transition: 0.8s ease-in opacity 2.2s;
+        }
+    }
+    &.anim{
+        .table-form{
+            transform: scale(1);
+        }
+
+        .part-form{
+            opacity: 1;
+        }
+    }
+}

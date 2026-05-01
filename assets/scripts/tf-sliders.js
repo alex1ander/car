@@ -1,5 +1,5 @@
     var swiper = new Swiper(".tf-swiper", {
-      spaceBetween: 60,
+        spaceBetween: 60,
         effect: 'slide',
         loop: true,
         freeMode: true,

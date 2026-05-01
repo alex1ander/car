@@ -1,8 +1,11 @@
-<section id="built-solution" class="section-container">
+<section id="built-solution" class="section-container bg-image-container">
 
-    <div class="container bg-image-container">
 
-        <img class="bg-image" src="../assets/images/bg-tablet.png" alt="">
+    <img class="bg-image" src="../assets/images/bg-tablet.png" alt="">
+    
+    <div class="container">
+
+
 
         <div class="title-block">
             <h2>Built Solutions</h2>
