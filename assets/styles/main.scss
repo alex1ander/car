@@ -8,6 +8,7 @@
 @use "./components/comunication";
 @use "./components/blog";
 @use "./components/faq";
+@use "./components/header";
 @use "./components/footer";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
@@ -53,6 +54,9 @@ html, body {
 .section-container{
     margin-top: 90px;
     margin-bottom: 60px;
+    display: flex;
+    gap: 60px;
+    flex-direction: column;
 }
 
 img{

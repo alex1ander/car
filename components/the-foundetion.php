@@ -41,22 +41,79 @@
                 </div>
 
 
-                <div class="slider-part">
-                    <h5>Technology we use</h5>
-                    <div class="tf-swiper swiper">
-                        <div class="swiper-wrapper">
-                            <?php for($i = 0; $i < 50; $i++) { ?>
-                            <div class="swiper-slide">
-                                <div class="brand">
-                                    <svg width="24" height="24">
-                                        <use href="#openai"></use>
-                                    </svg>
-                                    <span>Open AI</span>
-                                </div>
-                            </div>
-                            <?php } ?>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container container-full p-0">
+        <div class="slider-part">
+            <h5>Technology we use</h5>
+            <div class="tf-swiper swiper">
+                <div class="swiper-wrapper">
+                    <?php for($i = 0; $i < 3; $i++) { ?>
+                    <div class="swiper-slide">
+                        <div class="brand">
+                            <svg width="24" height="24">
+                                <use href="#openai"></use>
+                            </svg>
+                            <span>Open AI</span>
                         </div>
                     </div>
+
+                        <div class="swiper-slide">
+                        <div class="brand">
+                            <svg width="24" height="24">
+                                <use href="#node"></use>
+                            </svg>
+                            <span>Node JS</span>
+                        </div>
+                    </div>
+
+                        <div class="swiper-slide">
+                        <div class="brand">
+                            <svg width="24" height="24">
+                                <use href="#laravel"></use>
+                            </svg>
+                            <span>Laravel</span>
+                        </div>
+                    </div>
+
+                        <div class="swiper-slide">
+                        <div class="brand">
+                            <svg width="24" height="24">
+                                <use href="#react"></use>
+                            </svg>
+                            <span>React</span>
+                        </div>
+                    </div>
+
+                        <div class="swiper-slide">
+                        <div class="brand">
+                            <svg width="24" height="24">
+                                <use href="#go"></use>
+                            </svg>
+                            <span>GO</span>
+                        </div>
+                    </div>
+
+                        <div class="swiper-slide">
+                        <div class="brand">
+                            <svg width="24" height="24">
+                                <use href="#docker"></use>
+                            </svg>
+                            <span>Docker</span>
+                        </div>
+                    </div>
+
+                        <div class="swiper-slide">
+                        <div class="brand">
+                            <svg width="24" height="24">
+                                <use href="#swift"></use>
+                            </svg>
+                            <span>Swift</span>
+                        </div>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
