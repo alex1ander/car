@@ -3,10 +3,19 @@
 
 #about-us{
     
+    .swiper-slide{
+        width: fit-content!important;
+    }
+
     .review-photo-card{
         position: relative;
+
+        width: 706px;
+
+        @include mobile{
+            width: 330px;
+        }
         margin: 5% 0;
-        max-width: 90%;
         .photo-review{
             position: absolute;
             top: 0;
@@ -37,16 +46,17 @@
         }
     }
     .review-card{
-
+        
+        width: 80%;
         position: relative;
         display: flex;
         align-items: center;
         gap: 40px;
 
-        margin-right: 33%;
+        // padding-right: 33%;
         @include mobile{
             margin-top: 50%;
-            margin-right: 0;
+            width: 100%;
         }
         
 

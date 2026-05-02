@@ -1,0 +1,100 @@
+
+@use "mixins" as *;
+
+
+#faq{
+   
+
+.accordions{
+    @include glass-effect(20px);
+    flex-direction: column;
+    background: transparent;
+    padding: 20px;
+    max-width: 864px;
+    margin: 0 auto;
+
+}
+
+.accordion {
+  width: 100%;
+  margin-bottom: 20px;
+  background: #70707026;
+  backdrop-filter: blur(6px);
+  border: 1px solid #57a6fb17;
+  border-radius: 24px;
+
+  &__intro {
+    position: relative;
+    padding: 16px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease, opacity 0.3s ease;
+    padding: 0 16px;
+    opacity: 0;
+  }
+
+  .accordion-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 18px;
+      height: 2px;
+      background: #57A6FB;
+      transform: translate(-50%, -50%);
+      transition: transform 0.3s ease;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+
+  .accordion-title {
+    font-size: 20px;
+  }
+
+  .row {
+    padding-bottom: 12px;
+  }
+
+  .service-text {
+    font-size: 16px;
+    opacity: 0.5;
+    line-height: 1.5;
+  }
+
+  &.accordion__active {
+    border-color: #57A6FB80;
+
+    .accordion__intro::after {
+      transform: scaleX(1);
+    }
+
+    .accordion-arrow::before {
+      transform: translate(-50%, -50%) rotate(0deg); // плюс → минус
+    }
+
+    .accordion__content {
+      opacity: 1;
+    }
+  }
+}
+
+
+}

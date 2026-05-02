@@ -1,0 +1,188 @@
+
+@use "mixins" as *;
+
+
+
+@mixin flex($align: center, $justify: flex-start, $gap: 0) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+.footer {
+    a{
+        color: #fff;
+        text-decoration: none;
+    }
+  // ── Main grid
+  &__body {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 72px 40px 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px 40px;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      padding: 48px 24px 40px;
+    }
+  }
+
+  // ── Column heading
+  &__col-title {
+    font-weight: 600;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  // ── Services list
+  &__services {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    li{ 
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        a{
+            font-weight: 400;
+            font-size: 15px;
+            color: #fff;
+            text-decoration: none
+        }
+    }
+  }
+
+
+  // ── Contact list
+  &__contacts {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    li {
+      @include flex(center, flex-start, 12px);
+    }
+
+    a {
+        color: #fff;
+        @include flex(center, flex-start, 8px);
+        text-decoration: none;
+    }
+
+  }
+
+  // ── Copy button
+  &__copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 4px;
+  }
+
+  // ── Address block
+  &__address {
+    @include flex(flex-start, space-between, 12px);
+    margin-bottom: 22px;
+
+    p { flex: 1; }
+
+    display: flex;
+    align-items: center;
+  }
+
+  // ── "Get directions" button
+  &__directions {
+    border: 1px solid #57A6FB;
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+  }
+
+  // ── Social icons row
+  &__socials {
+    @include flex(center, flex-start, 14px);
+    margin-bottom: 24px;
+  }
+
+  &__social-link {
+    width: 36px;
+    height: 36px;
+    @include flex(center, center, 0);
+    text-decoration: none;
+    border-radius: 6px;
+  }
+
+  // ── Careers / Send CV links
+  &__career-links {
+    @include flex(center, flex-start, 0);
+
+    span { margin: 0 8px; }
+  }
+
+  // ── Divider
+  &__divider {
+    height: 1px;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  // ── Bottom bar
+  &__bar {
+    &-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 18px 40px;
+      @include flex(center, space-between, 20px);
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px 24px;
+      }
+    }
+  }
+
+  // ── Legal links
+  &__legal {
+    @include flex(center, flex-start, 24px);
+
+    a { text-decoration: none; color: #fff;font-size: 13px; }
+  }
+
+  &__copyright {
+    font-size: 13px;
+    opacity: 0.5;
+  }
+}
+
+// ── Copy toast
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  padding: 7px 16px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 999;
+
+  &.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

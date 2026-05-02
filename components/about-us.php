@@ -1,8 +1,7 @@
-<section id="about-us" class="section-container">
+<section id="about-us" class="section-container bg-image-container">   
+    <img class="bg-image" src="../assets/images/review-bg.png" alt="">
+    <div class="container container-full p-0">
 
-    <div class="container bg-image-container">
-        
-        <img class="bg-image" src="../assets/images/review-bg.png" alt="">
         <div class="title-block">
             <h2>What our clients say about us</h2>
             <p>PROVEN TRACK RECORD IN COMPLEX ENGINEERING</p>
@@ -149,9 +148,17 @@
                     </div>
                 </div>
                 <div class="place-for-pagination">
-                    <div class="bs-swiper-button-prev glass-effect"></div>
+                    <div class="bs-swiper-button-prev cp glass-effect">
+                        <svg width="24" height="24">
+                            <use href="#arrow-right"></use>
+                        </svg>
+                    </div>
                     <div class="swiper-pagination about-us-pagination"></div>
-                    <div class="bs-swiper-button-next glass-effect"></div>
+                    <div class="bs-swiper-button-next cp glass-effect next-button">
+                        <svg width="24" height="24">
+                            <use href="#arrow-right"></use>
+                        </svg>
+                    </div>
                 </div>
 
             </div>
