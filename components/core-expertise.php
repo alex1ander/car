@@ -72,7 +72,10 @@
 
                     </div>
                 </div>
-                <div class="swiper-pagination ce-pagination"></div>
+
+                <div class="place-for-pagination">
+                    <div class="swiper-pagination ce-pagination"></div>
+                </div>
 
             </div>
 

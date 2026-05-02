@@ -148,7 +148,11 @@
 
                     </div>
                 </div>
-                <div class="swiper-pagination about-us-pagination"></div>
+                <div class="place-for-pagination">
+                    <div class="bs-swiper-button-prev glass-effect"></div>
+                    <div class="swiper-pagination about-us-pagination"></div>
+                    <div class="bs-swiper-button-next glass-effect"></div>
+                </div>
 
             </div>
 
