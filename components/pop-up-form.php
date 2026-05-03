@@ -265,7 +265,10 @@
         </div>
 
         <div class="bottom-part">
-            <div class="line-success"></div>
+            <div class="success-block">
+                <span>Received</span>
+                <div class="line-success"></div>
+            </div>
             <div class="btn-glass-effect">OK</div>
         </div>
     </div>

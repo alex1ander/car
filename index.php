@@ -17,7 +17,7 @@
     <?php include 'header.php'; ?>
     <main>
         <?php 
-        // include 'components/preloader.php'; 
+        include 'components/preloader.php'; 
         ?>
         <?php include 'components/hero.php'; ?>
         <?php include 'components/built-solutions.php'; ?>

@@ -312,6 +312,19 @@
         width: fit-content;
         }
         // z-index: -1;
+    }   
+
+
+    .success-block{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        span{
+            font-size: 13px;
+            font-weight: 500;
+            text-align: center;
+        }
     }
 
     .line-success{
