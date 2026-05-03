@@ -1,5 +1,190 @@
 @use "mixins" as *;
 
-.header{
-    
+.header {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+
+    &__part{
+        display: flex;
+        align-items: center;
+        gap: 60px;
+    }
+
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__nav {
+        .menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+
+            a {
+                font-size: 14px;
+                font-weight: 400;
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+}
+
+// кнопки
+.btn {
+    padding: 14px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    &--dark {
+        @include glass-effect(50px);
+        background: transparent;
+        color: #fff;
+    }
+
+    &--blue {
+        @include glass-effect(50px);
+        background: #4da3ff;
+        color: #fff;
+    }
+}
+
+// язык
+.lang {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+    a {
+        color: #aaa;
+        text-decoration: none;
+
+        &.active {
+            color: #4da3ff;
+        }
+    }
+    span{
+        width: 1px;
+        height: auto;
+        background: #fff;
+        opacity: 0.2;
+    }
+}
+
+// BURGER
+.burger {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  display: none;
+  align-items: center;
+
+  @include mobile{
+    .burger {
+        display: flex;
+    }
+  }
+
+  span,
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+    border-radius: 2px;
+  }
+
+  &::before { top: 0; }
+  span       { top: 50%; transform: translateY(-50%); }
+  &::after   { bottom: 0; }
+
+  // --- active state ---
+  &.active {
+    &::before {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    span {
+      opacity: 0;
+      transform: translateY(-50%) scaleX(0);
+    }
+
+    &::after {
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+}
+
+.mobile-menu {
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+
+    z-index: 50;
+
+    &__inner{
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        list-style: none;
+        li{
+            a{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .buttons{
+        display: flex;
+        gap:16px;
+    }
+}
+
+// 🔥 MOBILE MIXIN
+@include mobile {
+    .header {
+        &__nav {
+            display: none;
+        }
+
+        .desktop {
+            display: none;
+        }
+    }
 }

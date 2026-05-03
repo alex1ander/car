@@ -59,12 +59,12 @@
                     <!-- рамка сверху -->
                     <img class="tablet-image" src="../assets/images/tablet.png" alt="">
                                             <!-- стрелки ВНУТРИ -->
-                    <div class="bs-swiper-button-prev cp glass-effect">
+                    <div class="bs-swiper-button-prev round-btn round-btn cp glass-effect">
                         <svg width="24" height="24">
                             <use href="#arrow-right"></use>
                         </svg>
                     </div>
-                    <div class="bs-swiper-button-next cp glass-effect next-button">
+                    <div class="bs-swiper-button-next round-btn round-btn cp glass-effect next-button">
                         <svg width="24" height="24">
                             <use href="#arrow-right"></use>
                         </svg>
@@ -92,12 +92,12 @@
                             </div> 
                         </div>  
 
-                        <div class="bs-swiper-button-prev cp glass-effect">
+                        <div class="bs-swiper-button-prev round-btn cp glass-effect">
                             <svg width="24" height="24">
                                 <use href="#arrow-right"></use>
                             </svg>
                         </div>
-                        <div class="bs-swiper-button-next cp glass-effect next-button">
+                        <div class="bs-swiper-button-next round-btn cp glass-effect next-button">
                             <svg width="24" height="24">
                                 <use href="#arrow-right"></use>
                             </svg>

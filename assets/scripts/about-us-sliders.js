@@ -3,5 +3,10 @@ const aboutUsSwiper = new Swiper(".about-us-swiper", {
     spaceBetween: 60,
     pagination: {
         el: ".about-us-pagination",
-    }
+    },
+    navigation: {
+        nextEl: ".about-swiper-button-next",
+        prevEl: ".about-swiper-button-prev",
+        
+    },
 });

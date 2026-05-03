@@ -48,13 +48,13 @@
             </div>
 
             <div class="place-for-pagination">
-                    <div class="bs-swiper-button-prev cp glass-effect">
+                    <div class="blog-swiper-button-prev round-btn cp glass-effect">
                         <svg width="24" height="24">
                             <use href="#arrow-right"></use>
                         </svg>
                     </div>
                     <div class="swiper-pagination blog-pagination"></div>
-                    <div class="bs-swiper-button-next cp glass-effect next-button">
+                    <div class="blog-swiper-button-next round-btn cp glass-effect next-button">
                         <svg width="24" height="24">
                             <use href="#arrow-right"></use>
                         </svg>

@@ -9,7 +9,8 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: all .3s ease-in-out;
+    transition: background .3s ease-in-out;
+    pointer-events: none;
     .svg-wrapper{
         position: relative;
         svg{
@@ -31,6 +32,8 @@
     }
 
     &.loaded{
+        
+        background: transparent;
 
         .svg-wrapper {
             svg{

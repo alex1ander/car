@@ -59,7 +59,7 @@
                                     </div>
                                 </div>
 
-                                <div class="btn-glass-effect confirm">Schedule a Meeting</div>
+                                <div id="open-form" class="btn-glass-effect confirm">Schedule a Meeting</div>
                             </div>
 
                             </div>
@@ -168,7 +168,7 @@
                                     </div>
                                 </div>
 
-                                <div class="btn-glass-effect confirm">Schedule a Meeting</div>
+                                <div id="open-success" class="btn-glass-effect confirm">Get a Quote</div>
 
                             </div>
                              </div>

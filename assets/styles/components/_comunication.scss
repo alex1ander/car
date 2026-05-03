@@ -3,7 +3,15 @@
 
 #comunication{
 
+
+    .place-for-form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .table-form{
+        min-width: 380px;
         margin: auto;
         background: linear-gradient(0deg,rgb(202, 202, 202) 7%, rgb(202, 202, 202) 72%, rgba(102, 102, 102, 1) 100%);
         border-radius: 80px;
@@ -77,61 +85,7 @@
                     opacity: 0.5;
                 }
 
-                .input-wrapper{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-
-                    @include mobile{
-                        width: 100%;
-                    }
-
-
-                    &.button-checker{
-                        background: rgba(0, 0, 0, 0.2);
-                        padding: 16px;
-                        border-radius: 15px;
-                        gap: $gap;
-                        h4{
-                            font-size: 20px;
-                        }
-                    }
-
-                    .input-label{
-                        font-weight: 400;
-                        font-size: 13px;
-                    }
-
-                    .input-block{
-                        background: #00000033;
-                        display: flex;
-                        gap: 8px;
-                        min-height: 54px;
-                        padding: 14px;
-                        align-items: center;
-                        border-radius: 15px;
-                        input,textarea{
-                            font-weight: 400;
-                            font-size: 15px;
-                            background: transparent;
-                            outline: none!important;
-                            border: none!important;
-                            height: 100%;
-                            width: 100%;
-                            color: #fff;
-                        }
-                        
-                        textarea{
-                            min-height: 80px;
-                            width: 100%;
-                            resize: none;
-                        }
-
-                        svg{
-
-                        }
-                    }
-                }
+                
 
 
                 .or-line{
@@ -166,6 +120,10 @@
                     display: flex;
                     justify-content: space-between;
                     gap: 20px;
+
+                    @include mobile{
+                        flex-direction: column;
+                    }
 
                     .link{
                         display: flex;

@@ -32,25 +32,24 @@
         <li>
           <!-- Phone icon -->
             <svg width="24" height="24">
-                <use href="#phone"></use>
+                <use href="#phone-gray"></use>
             </svg>
             <a href="tel:+10012221234">+1 001-222-1234</a>
         </li>
         <li>
           <!-- Mail icon -->
             <svg width="24" height="24">
-                <use href="#email"></use>
+                <use href="#email-gray"></use>
             </svg>
             <a href="mailto:hello@yokasoft.com">
                 hello@yokasoft.com
-                <button class="footer__copy-btn" aria-label="Copy email" onclick="copyText('hello@yokasoft.com')">
-
-                </button>
             </a>
+            <button class="footer__copy-btn" aria-label="Copy email" onclick="copyText('hello@yokasoft.com')">
+              <svg width="16" height="16">
+                  <use href="#copy"></use>
+              </svg>
+            </button>
 
-            <svg width="16" height="16">
-                <use href="#copy"></use>
-            </svg>
         </li>
         <li>
           <!-- Telegram icon -->

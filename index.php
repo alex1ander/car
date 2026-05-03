@@ -19,11 +19,13 @@
         <?php 
         // include 'components/preloader.php'; 
         ?>
+        <?php include 'components/hero.php'; ?>
         <?php include 'components/built-solutions.php'; ?>
         <?php include 'components/core-expertise.php'; ?>
         <?php include 'components/the-foundetion.php'; ?>
         <?php include 'components/about-us.php'; ?>
         <?php include 'components/comunication.php'; ?>
+        <?php include 'components/pop-up-form.php'; ?>
         <?php include 'components/blog.php'; ?>
         <?php include 'components/faq.php'; ?>
     </main>
